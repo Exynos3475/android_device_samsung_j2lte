@@ -171,6 +171,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstlport
 
+# Remove unwanted packages
+PRODUCT_PACKAGES += \
+    RemovePackages
+
 # ADB
 ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.service.adb.enable=1 \
