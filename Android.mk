@@ -16,6 +16,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),kminilte)
+ifeq ($(TARGET_DEVICE),j2lte)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif

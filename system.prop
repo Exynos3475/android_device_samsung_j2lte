@@ -1,5 +1,5 @@
 #
-# system.prop for kminilte
+# system.prop for j2lte
 #
 
 ro.sf.lcd_density=320
@@ -15,9 +15,3 @@ ro.telephony.default_network=9
 telephony.lteOnCdmaDevice=0
 persist.radio.apm_sim_not_pwdn=1
 persist.radio.add_power_save=1
-
-# Uncomment the following line to enable Bluetooth A2DP sink
-#persist.service.bt.a2dp.sink=true
-
-ro.nfc.sec_hal=true
-

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-export DEVICE=kminilte
+export DEVICE=j2lte
 export VENDOR=samsung
 
 if [ $# -eq 0 ]; then

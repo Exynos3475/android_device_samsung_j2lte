@@ -15,9 +15,9 @@
 #
 
 # Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/kminilte/kminilte-vendor.mk)
+$(call inherit-product, vendor/samsung/j2lte/j2lte-vendor.mk)
 
-LOCAL_PATH := device/samsung/kminilte
+LOCAL_PATH := device/samsung/j2lte
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -32,11 +32,11 @@ TARGET_SCREEN_WIDTH := 720
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.universal3470 \
-    init.universal3470.rc \
-    init.universal3470.usb.rc \
+    fstab.universal3475 \
+    init.universal3475.rc \
+    init.universal3475.usb.rc \
     init.wifi.rc \
-    ueventd.universal3470.rc
+    ueventd.universal3475.rc
 
 #ADB
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -66,35 +66,17 @@ PRODUCT_PACKAGES += \
 
 # IR
 PRODUCT_PACKAGES += \
-    consumerir.universal3470
+    consumerir.universal3475
 
 # Sensors
 PRODUCT_PACKAGES += \
-    sensors.universal3470
-
-# Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprintd \
-    fingerprint.universal3470 \
-    ValidityService
+    sensors.universal3475
 
 # Media config
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/media/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/media/media_profiles.xml:system/etc/media_profiles.xml
-
-# NFC
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    NfcNci \
-    libnfc-nci \
-    Tag
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/nfc/libnfc-sec.conf:system/etc/libnfc-brcm.conf \
-    $(LOCAL_PATH)/nfc/libnfc-sec-hal.conf:system/etc/libnfc-sec-hal.conf \
-    $(LOCAL_PATH)/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
 
 # Radio
 PRODUCT_COPY_FILES += \
@@ -133,4 +115,4 @@ PRODUCT_PACKAGES += \
 $(call inherit-product-if-exists, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Inherit from smdk3470-common
-$(call inherit-product, device/samsung/smdk3470-common/smdk3470-common.mk)
+$(call inherit-product, device/samsung/smdk3475-common/smdk3475-common.mk)

@@ -14,11 +14,12 @@
 # limitations under the License.
 #
 
+LOCAL_DEVICE_PATH := device/samsung/j2lte
 # inherit from common smdk3470
--include device/samsung/smdk3470-common/BoardConfigCommon.mk
+-include device/samsung/smdk3475-common/BoardConfigCommon.mk
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := kminiltexx,kminiltedv,kminilteub,kminilte
+TARGET_OTA_ASSERT_DEVICE := j2lte
 
 # Filesystems
 # Note: the BOARD_...IMAGE_PARTITION_SIZE values define the image sizes, 
@@ -39,23 +40,17 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2147483648
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12833521664
 
 # Include path
-TARGET_SPECIFIC_HEADER_PATH += device/samsung/kminilte/include
+TARGET_SPECIFIC_HEADER_PATH += $(LOCAL_DEVICE_PATH)/include
 
 # Kernel
-TARGET_KERNEL_CONFIG := kminilte_00_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/kminilte
+TARGET_KERNEL_CONFIG := lineage-j2lte_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/j2lte
 
 # CMHW
-BOARD_HARDWARE_CLASS := device/samsung/kminilte/cmhw
+BOARD_HARDWARE_CLASS := $(LOCAL_DEVICE_PATH)/cmhw
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/kminilte/bluetooth
-
-# NFC
-# Chipset: Samsung s3fwrn5
-# Note: as libnfc-nci only supports pn547 and bcm2079x, select pn547 here but use the stock s3fwrn5 hal
-BOARD_NFC_CHIPSET := pn547
-BOARD_NFC_HAL_SUFFIX := universal3470
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_DEVICE_PATH)/bluetooth
 
 # PowerHAL
 TARGET_POWERHAL_VARIANT := exynos3
@@ -71,12 +66,12 @@ BOARD_EGL_NEEDS_HANDLE_VALUE := true
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true
-TARGET_INIT_VENDOR_LIB := libinit_kminilte
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/kminilte/init/init_kminilte.cpp
+TARGET_INIT_VENDOR_LIB := libinit_j2lte
+TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_DEVICE_PATH)/init/init_j2lte.cpp
 
 # Recovery
-TARGET_RECOVERY_DEVICE_DIRS += device/samsung/kminilte
-TARGET_RECOVERY_FSTAB := device/samsung/kminilte/rootdir/etc/fstab.universal3470
+TARGET_RECOVERY_DEVICE_DIRS += $(LOCAL_DEVICE_PATH)
+TARGET_RECOVERY_FSTAB := $(LOCAL_DEVICE_PATH)/rootdir/etc/fstab.universal3475
 BOARD_HAS_LARGE_FILESYSTEM := true
 
 # TWRP
@@ -93,4 +88,4 @@ TWRP_INCLUDE_LOGCAT := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS := \
-	device/samsung/kminilte/sepolicy
+	$(LOCAL_DEVICE_PATH)/sepolicy

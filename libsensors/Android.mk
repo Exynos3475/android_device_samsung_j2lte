@@ -70,7 +70,7 @@ include $(BUILD_SHARED_LIBRARY)
 # hw/<SENSORS_HARDWARE_MODULE_ID>.<ro.product.board>.so
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := sensors.universal3470
+LOCAL_MODULE := sensors.universal3475
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 
 LOCAL_SHARED_LIBRARIES += libmplmpu

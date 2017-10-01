@@ -13,7 +13,7 @@ vendor/firmware/bcm4334_V1831.2468.hcd
 vendor/firmware/bcm4339_V1831.2468.hcd
 
 # Camera
-# Needed by "camera.universal3470.so"
+# Needed by "camera.universal3475.so"
 lib/libhwjpeg.so
 lib/libexynoscamera.so
 
@@ -75,7 +75,7 @@ lib/libhwcutilsmodule.so
 lib/libvirtualdisplay.so
 
 # Keystore
-lib/hw/keystore.exynos3470.so
+lib/hw/keystore.exynos3475.so
 
 # LPM
 bin/lpm
