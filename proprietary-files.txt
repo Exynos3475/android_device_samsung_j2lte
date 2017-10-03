@@ -25,7 +25,7 @@ lib/libstagefright_hdcp.so
 vendor/lib/libwvm.so
 vendor/lib/libwvdrm_L1.so
 # Needed by libwvm.so
-vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/libWVStreamControlAPI_L3.so
 vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/liboemcrypto.so
 
@@ -98,16 +98,7 @@ media/incompatible_charger.spi
 media/battery_temperature_limit.spi
 
 # Media
-vendor/firmware/fimc_is_fw2.bin
 vendor/firmware/mfc_fw.bin
-vendor/firmware/setfile_4h5.bin
-vendor/firmware/setfile_6a3.bin
-vendor/firmware/setfile_6b2.bin
-
-# NFC
-lib/hw/nfc_nci.universal3470.so
-etc/sec_s3fwrn5_rfreg.bin
-vendor/firmware/sec_s3fwrn5_firmware.bin
 
 # MobiCore
 bin/mcDriverDaemon
@@ -149,18 +140,6 @@ lib/omx/libOMX.Exynos.MPEG4.Decoder.so
 lib/omx/libOMX.Exynos.MPEG4.Encoder.so
 lib/omx/libOMX.Exynos.WMV.Decoder.so
 
-# Radio
-bin/at_distributor
-lib/libgdmcprov.so
-etc/plmn_se13.bin
-etc/plmn_delta.bin
-lib/libatparser.so
-lib/libfactoryutil.so
-lib/libomission_avoidance.so
-lib/libsec-ril.so
-# Needed by libsec-ril.so
-lib/libsecnativefeature.so
-
 # Sensors
 # Geomagnetic sensor
 lib/libacdapi_clb.so
@@ -184,11 +163,3 @@ lib/lib_DNSe_NRSS_ver226.so
 lib/lib_SamsungRec_V04004.so
 lib/lib_Samsung_Resampler.so
 lib/lib_Samsung_SB_AM_for_ICS_v04004.so
-
-# Fingerprint
-bin/vcsFPService
-lib/libfpasmtztransport.so
-lib/libvalAuth.so
-lib/libvcsfp.so
-lib/libvfmClient.so
-lib/libvfmtztransport.so
