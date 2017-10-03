@@ -43,8 +43,8 @@ PRODUCT_PACKAGES += \
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
     ro.secure=0 \
-    ro.debuggable=1
-
+    ro.debuggable=1 \
+    persist.service.adb.enable=1
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
