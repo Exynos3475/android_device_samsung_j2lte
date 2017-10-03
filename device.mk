@@ -36,7 +36,8 @@ PRODUCT_PACKAGES += \
     init.universal3475.rc \
     init.universal3475.usb.rc \
     init.wifi.rc \
-    ueventd.universal3475.rc
+    ueventd.universal3475.rc \
+    init.usb.rc
 
 #ADB
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -54,7 +55,7 @@ PRODUCT_COPY_FILES += \
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
+    $(LOCAL_PATH)/keylayout/Generic.kl:system/usr/keylayout/Generic.kl
 
 # Lights
 PRODUCT_PACKAGES += \

@@ -53,7 +53,6 @@ void vendor_load_properties()
         property_set("ro.product.model", "SM-J200G");
         property_set("ro.product.device", "j2lte");
     }
-	else {
     property_get("ro.product.device", device);
     ERROR("Found bootloader id %s setting build properties for %s device\n", bootloader, device);
 }
