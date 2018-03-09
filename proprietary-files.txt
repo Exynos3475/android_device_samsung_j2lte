@@ -1,0 +1,129 @@
+#Audio
+vendor/lib/libLifevibes_lvverx.so
+vendor/lib/libLifevibes_lvvetx.so
+
+#Bluetooth
+bin/prepare_param.sh
+vendor/firmware/bcm43438A1_V0056.0256.hcd
+vendor/firmware/bcm4343A0_V0072.0270.hcd
+vendor/lib/libbt-vendor.so
+etc/bluetooth/bt_stack.conf
+
+# Camera
+lib/hw/camera.universal3475.so
+lib/libcamera_metadata.so
+lib/libexynoscamera.so
+lib/libexynoscamera3.so
+lib/libseccameracore.so
+lib/libuniplugin.so
+lib/libhwjpeg.so
+lib/libexynosutils.so
+lib/libcsc.so
+lib/libexynosgscaler.so
+lib/libexynosscaler.so
+lib/libexynosv4l2.so
+lib/libstainkiller.so
+lib/libHpr_RecFace_dl_v1.0.so
+lib/libHpr_RecGAE_cvFeature_v1.0.so
+lib/libHpr_TaskFaceClustering_hierarchical_v1.0.so
+vendor/firmware/setfile_3l2.bin
+vendor/firmware/setfile_3p3.bin
+vendor/firmware/setfile_5e3.bin
+vendor/lib/libOpenCv.so:lib/libOpenCv.so
+vendor/lib/libHpr_LocLandmark_sdm_v1.0.so
+vendor/lib/libsomp.so:lib/libsomp.so
+vendor/lib/libHpr_LocFace_mvfd_v1.0.so
+
+# DRM
+vendor/lib/mediadrm/libdrmclearkeyplugin.so
+vendor/lib/mediadrm/libwvdrmengine.so
+
+# GPS
+bin/gpsd
+etc/ca.pem
+lib/hw/gps.default.so
+lib/libfloatingfeature.so
+lib/libwrappergps.so
+
+# Graphics
+vendor/lib/egl/libGLES_mali.so
+lib/egl/egl.cfg
+lib/egl/libGLES_android.so
+
+# Media
+vendor/lib/libSEF.so
+vendor/firmware/fimc_is_lib.bin
+vendor/firmware/mfc_fw.bin
+
+# Mobicore
+app/FFFFFFFF000000000000000000000001.drbin
+app/mcRegistry/00060308060501020000000000000000.tlbin
+app/mcRegistry/07010000000000000000000000000000.tlbin
+app/mcRegistry/07060000000000000000000000000000.tlbin
+app/mcRegistry/08130000000000000000000000000000.tlbin
+app/mcRegistry/ffffffff000000000000000000000004.tlbin
+app/mcRegistry/ffffffff000000000000000000000005.tlbin
+app/mcRegistry/ffffffff00000000000000000000000a.tlbin
+app/mcRegistry/ffffffff00000000000000000000000b.tlbin
+app/mcRegistry/ffffffff00000000000000000000000c.tlbin
+app/mcRegistry/ffffffff00000000000000000000000d.tlbin
+app/mcRegistry/ffffffff00000000000000000000000f.tlbin
+app/mcRegistry/ffffffff000000000000000000000012.tlbin
+app/mcRegistry/ffffffff000000000000000000000013.tlbin
+app/mcRegistry/ffffffff000000000000000000000016.tlbin
+app/mcRegistry/ffffffff000000000000000000000017.tlbin
+app/mcRegistry/ffffffff000000000000000000000019.tlbin
+app/mcRegistry/ffffffff000000000000000000000041.tlbin
+app/mcRegistry/ffffffff000000000000000000000045.tlbin
+app/mcRegistry/ffffffffd00000000000000000000004.tlbin
+app/mcRegistry/ffffffffd0000000000000000000000a.tlbin
+app/mcRegistry/ffffffffd00000000000000000000016.tlbin
+app/mcRegistry/fffffffff0000000000000000000001e.tlbin
+vendor/lib/libMcClient.so:lib/libMcClient.so
+vendor/lib/libMcRegistry.so:lib/libMcRegistry.so
+
+# OMX
+lib/omx/libOMX.Exynos.AVC.Decoder.so
+lib/omx/libOMX.Exynos.AVC.Encoder.so
+lib/omx/libOMX.Exynos.HEVC.Decoder.so
+lib/omx/libOMX.Exynos.HEVC.Encoder.so
+lib/omx/libOMX.Exynos.VP8.Decoder.so
+
+# Radio
+bin/rild
+lib/libril.so
+lib/libsec-ril.so
+lib/libsecril-client.so
+lib/libaudio-ril.so
+lib/libreference-ril.so
+lib/librilutils.so
+lib/libsec-ril-dsds.so
+lib/libsecnativefeature.so
+
+# Sensors
+lib/hw/sensors.universal3475.so
+lib/libsensorservice.so
+lib/libsensorlistener.so
+
+# Surface Composer
+lib/hw/gralloc.exynos3.so
+
+# Wifi
+etc/plmn_delta.bin
+etc/plmn_se13.bin
+etc/srm.bin
+etc/wifi/bcmdhd_apsta.bin
+etc/wifi/bcmdhd_mfg.bin
+etc/wifi/bcmdhd_sta.bin
+etc/wifi/cred.conf
+etc/wifi/nvram_mfg.txt
+etc/wifi/nvram_net.txt
+
+
+# BSP
+lib/hw/hwcomposer.exynos3.so
+lib/hw/memtrack.exynos3.so
+lib/libdisplay.so
+lib/libhdmi.so
+lib/libhwcutils.so
+lib/libmpp.so
