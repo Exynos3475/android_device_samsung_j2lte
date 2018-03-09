@@ -159,7 +159,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.universal7870
+    lights.universal3475
 
 # Root
 PRODUCT_PACKAGES += \
@@ -172,6 +172,7 @@ PRODUCT_PACKAGES += \
 
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos3475/exynos3475.mk)
+$(call inherit-product, hardware/samsung_slsi-cm/exynos5/exynos5.mk)
 
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/j2lte/j2lte-vendor.mk)
