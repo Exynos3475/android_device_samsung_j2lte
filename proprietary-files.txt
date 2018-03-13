@@ -4,30 +4,25 @@ vendor/lib/libLifevibes_lvvetx.so
 
 #Bluetooth
 bin/prepare_param.sh
-vendor/firmware/bcm43438A1_V0056.0256.hcd
-vendor/firmware/bcm4343A0_V0072.0270.hcd
+vendor/firmware/bcm43438A1_V0055.0244.hcd
 vendor/lib/libbt-vendor.so
 etc/bluetooth/bt_stack.conf
 
 # Camera
-lib/hw/camera.universal3475.so
+lib/hw/camera.exynos3.so
 lib/libcamera_metadata.so
 lib/libexynoscamera.so
-lib/libexynoscamera3.so
 lib/libseccameracore.so
-lib/libuniplugin.so
 lib/libhwjpeg.so
 lib/libexynosutils.so
 lib/libcsc.so
 lib/libexynosgscaler.so
 lib/libexynosscaler.so
 lib/libexynosv4l2.so
-lib/libstainkiller.so
 lib/libHpr_RecFace_dl_v1.0.so
 lib/libHpr_RecGAE_cvFeature_v1.0.so
 lib/libHpr_TaskFaceClustering_hierarchical_v1.0.so
-vendor/firmware/setfile_3l2.bin
-vendor/firmware/setfile_3p3.bin
+vendor/firmware/setfile_4h5yc.bin
 vendor/firmware/setfile_5e3.bin
 vendor/lib/libOpenCv.so:lib/libOpenCv.so
 vendor/lib/libHpr_LocLandmark_sdm_v1.0.so
@@ -40,7 +35,6 @@ vendor/lib/mediadrm/libwvdrmengine.so
 
 # GPS
 bin/gpsd
-etc/ca.pem
 lib/hw/gps.default.so
 lib/libfloatingfeature.so
 lib/libwrappergps.so
@@ -52,7 +46,7 @@ lib/egl/libGLES_android.so
 
 # Media
 vendor/lib/libSEF.so
-vendor/firmware/fimc_is_lib.bin
+vendor/firmware/fimc_is_lib_isp.bin
 vendor/firmware/mfc_fw.bin
 
 # Mobicore
@@ -64,7 +58,6 @@ app/mcRegistry/08130000000000000000000000000000.tlbin
 app/mcRegistry/ffffffff000000000000000000000004.tlbin
 app/mcRegistry/ffffffff000000000000000000000005.tlbin
 app/mcRegistry/ffffffff00000000000000000000000a.tlbin
-app/mcRegistry/ffffffff00000000000000000000000b.tlbin
 app/mcRegistry/ffffffff00000000000000000000000c.tlbin
 app/mcRegistry/ffffffff00000000000000000000000d.tlbin
 app/mcRegistry/ffffffff00000000000000000000000f.tlbin
@@ -74,7 +67,6 @@ app/mcRegistry/ffffffff000000000000000000000016.tlbin
 app/mcRegistry/ffffffff000000000000000000000017.tlbin
 app/mcRegistry/ffffffff000000000000000000000019.tlbin
 app/mcRegistry/ffffffff000000000000000000000041.tlbin
-app/mcRegistry/ffffffff000000000000000000000045.tlbin
 app/mcRegistry/ffffffffd00000000000000000000004.tlbin
 app/mcRegistry/ffffffffd0000000000000000000000a.tlbin
 app/mcRegistry/ffffffffd00000000000000000000016.tlbin
@@ -86,8 +78,11 @@ vendor/lib/libMcRegistry.so:lib/libMcRegistry.so
 lib/omx/libOMX.Exynos.AVC.Decoder.so
 lib/omx/libOMX.Exynos.AVC.Encoder.so
 lib/omx/libOMX.Exynos.HEVC.Decoder.so
-lib/omx/libOMX.Exynos.HEVC.Encoder.so
+lib/omx/libOMX.Exynos.MPEG4.Encoder.so
+lib/omx/libOMX.Exynos.MPEG4.Decoder.so
 lib/omx/libOMX.Exynos.VP8.Decoder.so
+lib/omx/libOMX.Exynos.VP8.Encoder.so
+lib/omx/libOMX.Exynos.WMV.Decoder.so
 
 # Radio
 bin/rild
@@ -103,7 +98,6 @@ lib/libsecnativefeature.so
 # Sensors
 lib/hw/sensors.universal3475.so
 lib/libsensorservice.so
-lib/libsensorlistener.so
 
 # Surface Composer
 lib/hw/gralloc.exynos3.so:vendor/lib/hw/gralloc.exynos3.so
@@ -115,11 +109,13 @@ etc/srm.bin
 etc/wifi/bcmdhd_apsta.bin
 etc/wifi/bcmdhd_mfg.bin
 etc/wifi/bcmdhd_sta.bin
-etc/wifi/cred.conf
 etc/wifi/nvram_mfg.txt
 etc/wifi/nvram_net.txt
 
-
+# Firmware
+vendor/firmware/es305_fw_bypass.bin
+vendor/firmware/es305_fw.bin
+vendor/firmware/fimc_is_fd.bin
 # BSP
 lib/hw/hwcomposer.exynos3.so
 lib/hw/memtrack.exynos3.so
