@@ -59,7 +59,7 @@ TARGET_USES_UNCOMPRESSED_KERNEL := true
 # Kernel config
 
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos3475
-TARGET_KERNEL_CONFIG := j2lteswa_MM_defconfig
+TARGET_KERNEL_CONFIG := lineage-j2lte_defconfig
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 
 # Partitions
