@@ -54,13 +54,12 @@ TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 # Kernel
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_HEADER_ARCH := arm
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
 TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 # Kernel config
-TARGET_KERNEL_SOURCE := kernel/samsung/j2lte
-TARGET_KERNEL_CONFIG := lineage_j2lte_defconfig
+
+TARGET_KERNEL_SOURCE := kernel/samsung/exynos3475
+TARGET_KERNEL_CONFIG := j2lteswa_MM_defconfig
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 
 # Partitions
@@ -166,7 +165,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 # Recovery
 #RECOVERY_VARIANT := twrp
 BOARD_HAS_DOWNLOAD_MODE := true
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.samsungexynos3475
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.universal3475
 TARGET_OTA_ASSERT_DEVICE := j2lte
 
 # TWRP

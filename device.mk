@@ -39,10 +39,10 @@ PRODUCT_PACKAGES += \
     init.baseband.rc \
     init.rilchip.rc \
     init.samsung.rc \
-    init.samsungexynos3475.rc \
-    init.samsungexynos3475.usb.rc \
+    init.universal3475.rc \
+    init.universal3475.usb.rc \
     init.wifi.rc \
-    ueventd.samsungexynos3475.rc
+    ueventd.universal3475.rc
 
 # cpboot-daemon
 PRODUCT_COPY_FILES += \
