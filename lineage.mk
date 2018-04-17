@@ -15,7 +15,7 @@
 #
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/j2lte/device.mk)
+$(call inherit-product, device/samsung/o5prolte/device.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
@@ -24,8 +24,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_j2lte
-PRODUCT_DEVICE := j2lte
+PRODUCT_NAME := lineage_o5prolte
+PRODUCT_DEVICE := o5prolte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := J200G
 PRODUCT_MANUFACTURER := samsung

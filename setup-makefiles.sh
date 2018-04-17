@@ -17,8 +17,7 @@
 #
 
 set -e
-
-DEVICE=j2lte
+DEVICE=o5prolte
 VENDOR=samsung
 
 INITIAL_COPYRIGHT_YEAR=2018
