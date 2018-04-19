@@ -4,14 +4,15 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 
-/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM	/system		ext4	ro,errors=panic,noload                                                          wait
-/dev/block/platform/13540000.dwmmc0/by-name/BOOT        /boot		emmc	defaults		defaults
-/dev/block/platform/13540000.dwmmc0/by-name/RECOVERY /recovery emmc defaults recoveryonly
+/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM	/system		ext4	ro,errors=panic,noload,block_validity                                                          wait,verify
+/dev/block/platform/13540000.dwmmc0/by-name/BOOT      /boot      emmc    defaults                                                                          defaults
+/dev/block/platform/13540000.dwmmc0/by-name/RECOVERY  /recovery  emmc    defaults                                                                          defaults
 /dev/block/platform/13540000.dwmmc0/by-name/CACHE	/cache		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_async_commit,data=ordered,errors=panic    wait,check
 /dev/block/platform/13540000.dwmmc0/by-name/USERDATA	/data		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_async_commit,data=ordered,errors=panic    wait,check,encryptable=footer
 /dev/block/platform/13540000.dwmmc0/by-name/EFS		/efs		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_async_commit,data=ordered,errors=panic    wait,check
 
 # VOLD
-/dev/block/platform/13540000.dwmmc0/by-name/HIDDEN      /preload    ext4    defaults    voldmanaged=preload:auto
-/devices/13560000.dwmmc2/mmc_host/mmc*			auto    vfat    defaults    voldmanaged=sdcard:auto
-/devices/13510000.usb/usb*				auto    auto    defaults    voldmanaged=usb:auto
+/devices/13560000.dwmmc2/mmc_host/mmc*    auto    vfat    defaults    voldmanaged=sdcard:auto
+/devices/13510000.usb/usb*                auto    auto    defaults    voldmanaged=usb:auto
+/devices/13520000.usb/usb*                auto    auto    defaults    voldmanaged=usb:auto
+/dev/block/platform/13540000.dwmmc0/by-name/HIDDEN         /preload        ext4    default         voldmanaged=preload:auto
