@@ -35,7 +35,7 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.samsungexynos3475 \
+    fstab.universal3475 \
     init.baseband.rc \
     init.rilchip.rc \
     init.samsung.rc \
