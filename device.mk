@@ -1,4 +1,4 @@
-#
+
 # Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,8 +25,8 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Boot animation
-TARGET_SCREEN_WIDTH := 540
-TARGET_SCREEN_HEIGHT := 960
+TARGET_SCREEN_WIDTH := 720
+TARGET_SCREEN_HEIGHT := 1280
 TARGET_BOOTANIMATION_HALF_RES := true
 
 # Flat device tree for boot image
@@ -169,6 +169,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images \
     cm_charger_res_images
+
+#ADB
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.service.adb.enable=1 \
+	persist.service.debuggable=1 \
+	persist.sys.usb.config=mtp,adb
 
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos3475/exynos3475.mk)
