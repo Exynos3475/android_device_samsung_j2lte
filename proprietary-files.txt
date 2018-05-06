@@ -83,6 +83,8 @@ lib/omx/libOMX.Exynos.MPEG4.Decoder.so
 lib/omx/libOMX.Exynos.VP8.Decoder.so
 lib/omx/libOMX.Exynos.VP8.Encoder.so
 lib/omx/libOMX.Exynos.WMV.Decoder.so
+lib/libExynosOMX_Core.so
+lib/libExynosOMX_Resourcemanager.so
 
 # Radio
 bin/rild
@@ -116,6 +118,7 @@ etc/wifi/nvram_net.txt
 vendor/firmware/es305_fw_bypass.bin
 vendor/firmware/es305_fw.bin
 vendor/firmware/fimc_is_fd.bin
+
 # BSP
 lib/hw/hwcomposer.exynos3.so
 lib/hw/memtrack.exynos3.so
@@ -123,3 +126,9 @@ lib/libdisplay.so
 lib/libhdmi.so
 lib/libhwcutils.so
 lib/libmpp.so
+lib/hw/keystore.exynos3475.so
+lib/libExynosHWCService.so
+lib/libion_exynos.so
+lib/libion.so
+lib/libstagefrighthw.so
+lib/libstagefright_hdcp.so
