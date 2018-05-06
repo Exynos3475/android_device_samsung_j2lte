@@ -23,7 +23,7 @@ dalvik.vm.isa.arm.variant=cortex-a15
 dalvik.vm.isa.arm.features=default
 
 # Graphics
-ro.opengles.version=196610
+ro.opengles.version=196609
 ro.sf.lcd_density=280
 debug.hwc.force_gpu=1
 lockscreen.rot_override=true
