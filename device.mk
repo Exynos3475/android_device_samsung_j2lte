@@ -173,7 +173,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.service.adb.enable=1 \
 	persist.service.debuggable=1 \
-	persist.sys.usb.config=mtp,adb
+	persist.sys.usb.config=mtp,adb \
+	ro.secure=0 \
+	ro.adb.secure=0
+	
 
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos3475/exynos3475.mk)
