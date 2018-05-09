@@ -122,7 +122,6 @@ vendor/firmware/fimc_is_fd.bin
 # BSP
 lib/hw/hwcomposer.exynos3.so
 lib/hw/memtrack.exynos3.so
-lib/libdisplay.so
 lib/libhdmi.so
 lib/libhwcutils.so
 lib/libmpp.so
@@ -130,5 +129,3 @@ lib/hw/keystore.exynos3475.so
 lib/libExynosHWCService.so
 lib/libion_exynos.so
 lib/libion.so
-lib/libstagefrighthw.so
-lib/libstagefright_hdcp.so
