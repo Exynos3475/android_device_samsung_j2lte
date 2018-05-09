@@ -127,5 +127,3 @@ lib/libhwcutils.so
 lib/libmpp.so
 lib/hw/keystore.exynos3475.so
 lib/libExynosHWCService.so
-lib/libion_exynos.so
-lib/libion.so
