@@ -76,7 +76,7 @@
 /dev/video19              0660   system     system
 
 # Secure MEM driver
-/dev/s5p-smem             0660   drm        drmrpc
+/dev/s5p-smem             0660   system     system
 
 # sensor sysfs properties
 /sys/devices/virtual/input/input*	poll_delay	0660	system	radio
