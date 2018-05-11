@@ -82,9 +82,7 @@ lib/omx/libOMX.Exynos.MPEG4.Encoder.so
 lib/omx/libOMX.Exynos.MPEG4.Decoder.so
 lib/omx/libOMX.Exynos.VP8.Decoder.so
 lib/omx/libOMX.Exynos.VP8.Encoder.so
-lib/omx/libOMX.Exynos.WMV.Decoder.so
-lib/libExynosOMX_Core.so
-lib/libExynosOMX_Resourcemanager.so
+lib/omx/libOMX.Exynos.WMV.Decoder.so 
 
 # Radio
 bin/rild
@@ -102,7 +100,7 @@ lib/hw/sensors.universal3475.so
 lib/libsensorservice.so
 
 # Surface Composer
-lib/hw/gralloc.exynos3.so
+lib/hw/gralloc.exynos3.so:lib/hw/gralloc.exynos5.so
 
 # Wifi
 etc/plmn_delta.bin
@@ -118,12 +116,3 @@ etc/wifi/nvram_net.txt
 vendor/firmware/es305_fw_bypass.bin
 vendor/firmware/es305_fw.bin
 vendor/firmware/fimc_is_fd.bin
-
-# BSP
-lib/hw/hwcomposer.exynos3.so
-lib/hw/memtrack.exynos3.so
-lib/libhdmi.so
-lib/libhwcutils.so
-lib/libmpp.so
-lib/hw/keystore.exynos3475.so
-lib/libExynosHWCService.so
