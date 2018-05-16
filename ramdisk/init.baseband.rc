@@ -18,9 +18,17 @@ on fs
     chmod 0660 /sys/devices/virtual/misc/umts_dm0/dm_state
     chown radio system /sys/devices/virtual/misc/umts_dm0/dm_state
 
+# Parse hardware revision (needs to happen before cbd starts)
+service modemloader /system/bin/modemloader
+    class core
+    oneshot
+
+on property:ro.modemloader.done=1
+    enable cpboot-daemon
+
 service cpboot-daemon /sbin/cbd -d -tss310 -bm -mm -P platform/13540000.dwmmc0/by-name/RADIO
     class main
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r shell
     seclabel u:r:cbd:s0
-
+    disabled
