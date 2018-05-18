@@ -27,6 +27,6 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 PRODUCT_NAME := lineage_o5prolte
 PRODUCT_DEVICE := o5prolte
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := J200G
+PRODUCT_MODEL := G550FY
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
