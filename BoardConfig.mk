@@ -163,7 +163,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 #RECOVERY_VARIANT := twrp
 BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.universal3475
-TARGET_OTA_ASSERT_DEVICE := o5prolte, o5proltedd, o5proltedx
+TARGET_OTA_ASSERT_DEVICE := on5lte, on5ltedd, on5ltedx, o5prolte, o5proltedd, o5proltedx
 
 # TWRP
 ifeq ($(RECOVERY_VARIANT),twrp)
