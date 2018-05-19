@@ -10,7 +10,6 @@ on early-init
     
 on init
     start watchdogd
-    mkdir /preload 0771 system system
 
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
@@ -400,15 +399,3 @@ service swapon /sbin/sswap -s -f 1536
     seclabel u:r:sswap:s0
     oneshot
 
-# umount service
-service umount_service /system/bin/umount -D /preload
-    disabled
-    oneshot
-
-# Support Preload install apks
-on property:persist.sys.storage_preload=1
-    mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/HIDDEN /preload nosuid nodev ro barrier=1
-    setprop storage.preload.complete 1
-
-on property:persist.sys.storage_preload=0
-    start umount_service

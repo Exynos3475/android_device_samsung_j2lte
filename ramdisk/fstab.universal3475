@@ -15,4 +15,3 @@
 /devices/13560000.dwmmc2/mmc_host/mmc*    auto    vfat    defaults    voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/13510000.usb/usb*                auto    auto    defaults    voldmanaged=usb:auto
 /devices/13520000.usb/usb*                auto    auto    defaults    voldmanaged=usb:auto
-/dev/block/platform/13540000.dwmmc0/by-name/HIDDEN         /preload        ext4    default         voldmanaged=preload:auto
