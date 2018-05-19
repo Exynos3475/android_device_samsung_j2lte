@@ -38,7 +38,7 @@
 /dev/media2               0660   media      media
 
 #JPEG
-/dev/m2m1shot_jpeg        0660   media      media
+/dev/m2m1shot_jpeg        0660   cameraserver      media
 
 /dev/video16              0660   system     system
 /dev/video20              0660   system     system
