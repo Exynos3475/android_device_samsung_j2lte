@@ -1,0 +1,20 @@
+on boot
+
+# tdmb
+    chown system system /dev/tdmb
+    chmod 0660 /dev/tdmb
+
+on fs
+
+# tdmb
+service dmb /system/bin/dmbserver
+    class main
+    user media
+    group system radio inet misc audio camera graphics net_bt net_bt_admin sdcard_rw sdcard_r shell media_rw
+	
+service extSdUFS /system/bin/extSdUnionStorage
+    class main
+    user system
+    group system mount radio net_bt sdcard_rw sdcard_r shell media media_rw
+
+
