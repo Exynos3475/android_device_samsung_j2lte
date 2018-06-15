@@ -49,13 +49,15 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_HEADER_ARCH := arm
 TARGET_USES_UNCOMPRESSED_KERNEL := true
+BOARD_KERNEL_SEPARATED_DT := true
+TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 
 # Kernel config
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-linux-androideabi-4.9/bin
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos3475
 TARGET_KERNEL_CONFIG := lineage-j2lte_defconfig
-
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/j2lte/mkbootimg.mk
 # Partitions
 
 #Filesystem            1K-blocks    Used Available Use% Mounted on
