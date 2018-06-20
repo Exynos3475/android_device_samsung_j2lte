@@ -87,6 +87,11 @@ PRODUCT_PACKAGES += \
     libion \
     libfimg
 
+
+# Keymaster
+PRODUCT_PACKAGES += \
+		android.hardware.keymaster@3.0-impl
+
 # hardware/samsung/AdvancedDisplay (MDNIE)
 PRODUCT_PACKAGES += \
     AdvancedDisplay
