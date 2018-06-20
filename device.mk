@@ -116,12 +116,20 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 PRODUCT_PACKAGES += \
-    hostapd \
+		android.hardware.wifi@1.0 \
+    android.hardware.wifi@1.0-impl \
+    android.hardware.wifi@1.0-service \
     libnetcmdiface \
     macloader \
     wifiloader \
+    hostapd \
+    hostapd_default.conf \
+    libwpa_client \
+    wifilogd \
+    wlutil \
+    wificond \
     wpa_supplicant \
-    wpa_supplicant.conf
+		wpa_supplicant.conf
 
 # Audio
 PRODUCT_COPY_FILES += \
