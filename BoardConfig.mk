@@ -164,9 +164,6 @@ BOARD_MODEM_TYPE := tss310
 BOARD_PROVIDES_LIBRIL := true
 SIM_COUNT := 2
 
-# RIL.java overwrite
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
-
 # Release tools
 TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 
