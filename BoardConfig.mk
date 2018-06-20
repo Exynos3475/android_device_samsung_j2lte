@@ -95,8 +95,8 @@ TARGET_AUDIOHAL_VARIANT := samsung
 TARGET_POWERHAL_VARIANT := samsung
 
 # Samsung Hardware
-BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
-BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
+BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/lineagehw
+BOARD_HARDWARE_CLASS += hardware/samsung/lineagehw
 
 # Samsung Camera
 BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
