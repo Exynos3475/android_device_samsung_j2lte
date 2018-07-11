@@ -8,6 +8,7 @@ on post-fs-data
     mkdir /data/misc/wifi 0770 wifi system
     chmod 0660 /data/misc/wifi/wpa_supplicant.conf
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi/log/ 0770 wifi system
     mkdir /data/misc/dhcp 0775 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
@@ -36,9 +37,6 @@ on post-fs-data
 
 on boot
 	setprop wifi.interface wlan0
-
-#WiFi T-put setting
-	write /proc/sys/net/ipv4/tcp_adv_win_scale 2
 
 service p2p_supplicant /system/bin/wpa_supplicant -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -I/system/etc/wifi/wpa_supplicant_overlay.conf -O/data/misc/wifi/sockets -N -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf -I/system/etc/wifi/p2p_supplicant_overlay.conf -puse_p2p_group_interface=1 -puse_multi_chan_concurrent=1 -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
     class main
