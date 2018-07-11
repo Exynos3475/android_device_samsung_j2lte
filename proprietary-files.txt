@@ -4,7 +4,7 @@ vendor/lib/liblvvetx_3.27.02.so
 
 #Bluetooth
 bin/prepare_param.sh
-vendor/firmware/bcm43438A1_V0048.0215.hcd
+vendor/firmware/bcm43438A1_V0051.0222.hcd
 lib/libbt-vendor.so
 etc/bluetooth/bt_stack.conf
 
