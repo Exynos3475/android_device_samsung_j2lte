@@ -74,7 +74,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 PRODUCT_PACKAGES += \
-    gralloc.exynos3
+    gralloc.exynos5
 
 PRODUCT_PACKAGES += \
     libion \
@@ -175,7 +175,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp,adb \
 	ro.secure=0 \
 	ro.adb.secure=0
-	
 
 # Dalvik Heap
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
