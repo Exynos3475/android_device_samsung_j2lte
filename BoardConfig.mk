@@ -19,5 +19,10 @@ include device/samsung/universal7580-common/BoardConfigCommon.mk
 
 LOCAL_PATH := device/samsung/a3xelte
 
+TARGET_OTA_ASSERT_DEVICE := a3xelte,a3xeltexx,a3xelteub,a3xeltedo
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_sec
