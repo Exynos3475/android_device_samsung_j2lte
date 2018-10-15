@@ -35,6 +35,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service
 
+# Camera
+PRODUCT_PACKAGES += \
+    Snap
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
