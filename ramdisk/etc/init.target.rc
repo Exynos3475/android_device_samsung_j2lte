@@ -17,6 +17,9 @@ on boot
     # Set min_free_kbytes to keep larger VM chuncks lying around
     write /proc/sys/vm/min_free_kbytes 32768
 
+    # Tune SSWAP
+    write /proc/sys/vm/swappiness 160
+
 on fs
 	# Permissions for LCD
     chown system system /sys/class/lcd/panel/lux
