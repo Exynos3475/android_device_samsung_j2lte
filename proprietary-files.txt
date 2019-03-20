@@ -1,5 +1,5 @@
 # Bluetooth
-vendor/firmware/bcm43438A1_V0051.0217.hcd
+vendor/firmware/bcm43430A1_V0062.hcd
 
 # Camera
 lib/hw/camera.universal7580.so:lib/hw/camera.vendor.universal7580.so
