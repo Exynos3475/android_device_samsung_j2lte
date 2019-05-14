@@ -17,8 +17,9 @@ on boot
     # Set min_free_kbytes to keep larger VM chuncks lying around
     write /proc/sys/vm/min_free_kbytes 32768
 
-    # Tune SSWAP
+    # Tune virtual memory
     write /proc/sys/vm/swappiness 160
+    write /proc/sys/vm/vfs_cache_pressure 50
 
 on fs
 	# Permissions for LCD
