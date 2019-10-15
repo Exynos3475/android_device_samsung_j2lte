@@ -231,6 +231,11 @@ on fs
     setprop ro.crypto.fuse_sdcard true
     chown radio system /efs
 
+    chmod 0600 /dev/mobicore
+    chmod 0666 /dev/mobicore-user
+    chown system system /dev/mobicore
+    chown radio system /dev/mobicore-user
+
 # Permissions for ION
     chmod 0660 /sys/class/ion_cma/ion_video_ext/isolated
     chown system system /sys/class/ion_cma/ion_video_ext/isolated
@@ -405,4 +410,3 @@ service swapon /sbin/sswap -s -f 1536
     group root
     seclabel u:r:sswap:s0
     oneshot
-

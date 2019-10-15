@@ -1362,7 +1362,7 @@ on boot
 
 on nonencrypted
     # mobicore
-    mkdir /data/misc/mcRegistry 0775 system system
+    mkdir /data/app/mcRegistry 0775 system system
     # A/B update verifier that marks a successful boot.
     exec - root cache -- /system/bin/update_verifier nonencrypted
     class_start main
@@ -1422,7 +1422,7 @@ on property:vold.decrypt=trigger_restart_framework
     pdp restore
     pdp backup
     # mobicore
-    mkdir /data/misc/mcRegistry 0775 system system
+    mkdir /data/app/mcRegistry 0775 system system
     # A/B update verifier that marks a successful boot.
     exec - root cache -- /system/bin/update_verifier trigger_restart_framework
     class_start main
