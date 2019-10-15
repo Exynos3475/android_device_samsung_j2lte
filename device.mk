@@ -169,8 +169,8 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     cm_charger_res_images
 
-#ADB
-PRODUCT_PROPERTY_OVERRIDES += \
+# ADB
+ADDITIONAL_DEFAULT_PROPERTIES += \
 	persist.service.adb.enable=1 \
 	persist.service.debuggable=1 \
 	persist.sys.usb.config=mtp,adb \
