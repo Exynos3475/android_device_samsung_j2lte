@@ -124,6 +124,9 @@ BOARD_USE_QOS_CTRL := false
 BOARD_USE_S3D_SUPPORT := true
 BOARD_USE_VP8ENC_SUPPORT := true
 
+# Bionic
+MALLOC_SVELTE := true
+
 # Video scaling issue workaround
 TARGET_OMX_LEGACY_RESCALING := true
 
