@@ -16,7 +16,7 @@
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-LOCAL_PATH := device/samsung/o5prolte
+LOCAL_PATH := device/samsung/j2lte
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -71,7 +71,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
-    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
 PRODUCT_PACKAGES += \
@@ -175,10 +174,12 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	persist.service.debuggable=1 \
 	persist.sys.usb.config=mtp,adb \
 	ro.secure=0 \
-	ro.adb.secure=0
+	ro.adb.secure=0 \
+        ro.hardware=universal3475
+
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos3475/exynos3475.mk)
 $(call inherit-product, hardware/samsung_slsi-cm/exynos5/exynos5.mk)
 
 # call the proprietary setup
-$(call inherit-product, vendor/samsung/o5prolte/o5prolte-vendor.mk)
+$(call inherit-product, vendor/samsung/j2lte/j2lte-vendor.mk)

@@ -18,7 +18,7 @@
 
 set -e
 
-DEVICE=o5prolte
+DEVICE=j2lte
 VENDOR=samsung
 
 # Load extract_utils and do some sanity checks

@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/o5prolte
+LOCAL_PATH := device/samsung/j2lte
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
@@ -42,7 +42,7 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 -
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += "androidboot.selinux=permissive androidboot.hardware=universal3475"
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 
@@ -163,7 +163,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 #RECOVERY_VARIANT := twrp
 BOARD_HAS_DOWNLOAD_MODE := true
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.universal3475
-TARGET_OTA_ASSERT_DEVICE := on5lte, on5ltedd, on5ltedx, o5prolte, o5proltedd, o5proltedx
+TARGET_OTA_ASSERT_DEVICE := j2lte, j2ltedd, j2ltedx
 
 # TWRP
 ifeq ($(RECOVERY_VARIANT),twrp)
@@ -187,4 +187,4 @@ BOARD_SECCOMP_POLICY += $(LOCAL_PATH)/seccomp
 BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
 
 # Inherit from the proprietary version
--include vendor/samsung/o5prolte/BoardConfigVendor.mk
+-include vendor/samsung/j2lte/BoardConfigVendor.mk
