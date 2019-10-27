@@ -139,6 +139,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
+
 # Keys
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/sec_touchkey.kl:/system/usr/keylayout/sec_touchkey.kl \
@@ -173,8 +174,13 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	persist.service.debuggable=1 \
 	persist.sys.usb.config=mtp,adb \
 	ro.secure=0 \
-	ro.adb.secure=0 \
-        ro.hardware=universal3475
+	ro.adb.secure=0
+
+# Dalvik Heap
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+
+# Hwui Memory
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos3475/exynos3475.mk)
