@@ -55,7 +55,7 @@ TARGET_USES_UNCOMPRESSED_KERNEL := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos3475
-TARGET_KERNEL_CONFIG := lineage-o5lteswa_defconfig
+TARGET_KERNEL_CONFIG := lineage-j2lte_defconfig
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 
 # Partitions
