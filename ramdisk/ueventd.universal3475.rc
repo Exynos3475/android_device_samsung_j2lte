@@ -75,6 +75,10 @@
 /dev/video18              0660   system     system
 /dev/video19              0660   system     system
 
+# MobiCore
+/dev/mobicore             0700   system     system
+/dev/mobicore-user        0666   radio     system
+
 # Secure MEM driver
 /dev/s5p-smem             0660   system     system
 
