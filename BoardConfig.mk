@@ -183,11 +183,9 @@ TW_NO_EXFAT_FUSE := true
 TW_EXCLUDE_SUPERSU := true
 endif
 
-#Init
-TARGET_UNIFIED_DEVICE := true
+# Init
 TARGET_INIT_VENDOR_LIB := libinit_j2lte
 TARGET_RECOVERY_DEVICE_MODULES := libinit_j2lte
-TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_j2lte.cpp
 
 # Seccomp filters
 BOARD_SECCOMP_POLICY += $(LOCAL_PATH)/seccomp
