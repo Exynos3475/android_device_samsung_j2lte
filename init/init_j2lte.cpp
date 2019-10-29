@@ -32,6 +32,7 @@
 
 #include "vendor_init.h"
 #include "property_service.h"
+#include "log.h"
 #include "util.h"
 
 void property_override(char const prop[], char const value[])
@@ -45,6 +46,27 @@ void property_override(char const prop[], char const value[])
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
+void set_sim_info()
+
+{
+	char* simslot_count_path = (char *)"/proc/simslot_count";
+
+    	char simslot_count[2] = "\0";
+
+	FILE* file = fopen(simslot_count_path, "r");
+
+	simslot_count[0] = fgetc(file);
+
+	if (file != NULL) {
+		property_set("ro.multisim.simslotcount", simslot_count);
+	}
+	else {
+		ERROR("Could not open /proc/simslot_count");
+	}
+
+	fclose(file);
+
+}
 void vendor_load_properties()
 {
 	std::string bl;
@@ -58,4 +80,5 @@ void vendor_load_properties()
 	} else if (bl.find("J200F") != std::string::npos) {
 		property_override("ro.product.model", "J200F");
 	}
+	set_sim_info();
 }
