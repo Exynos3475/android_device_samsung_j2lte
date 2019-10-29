@@ -21,6 +21,13 @@ service ril-daemon1 /system/bin/rild -c 2
     group radio cache inet misc audio sdcard_r sdcard_rw log vpn system readproc
     disabled
 
+on property:ro.multisim.simslotcount=1
+    setprop persist.radio.multisim.config ss
+
+on property:ro.multisim.simslotcount=2
+    setprop persist.radio.multisim.config dsds
+    start ril-daemon1
+
 on property:persist.sys.cpboot=disable
     stop ril-daemon
     stop cpboot-daemon

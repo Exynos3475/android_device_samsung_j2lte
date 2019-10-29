@@ -25,8 +25,5 @@ ro.ril.gprsclass=10
 ro.ril.hsxpa=1
 ro.ril.telephony.mqanelements=6
 
-# read DS/SS property
-import /efs/factory.prop
-
 # Wifi
 wifi.interface=wlan0
