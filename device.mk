@@ -175,9 +175,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.secure=0 \
 	ro.adb.secure=0
 
-# Dalvik Heap
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos3475/exynos3475.mk)
 $(call inherit-product, hardware/samsung_slsi-cm/exynos5/exynos5.mk)
