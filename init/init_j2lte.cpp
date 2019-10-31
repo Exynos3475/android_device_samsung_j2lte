@@ -47,7 +47,6 @@ void property_override(char const prop[], char const value[])
 }
 
 void set_sim_info()
-
 {
 	char* simslot_count_path = (char *)"/proc/simslot_count";
 
@@ -67,6 +66,7 @@ void set_sim_info()
 	fclose(file);
 
 }
+
 void vendor_load_properties()
 {
 	std::string bl;
@@ -79,6 +79,8 @@ void vendor_load_properties()
 		property_override("ro.product.model", "J200M");
 	} else if (bl.find("J200F") != std::string::npos) {
 		property_override("ro.product.model", "J200F");
-	}
+	} else if (bl.find("J200BT") != std::string::npos) {
+		property_override("ro.product.model", "J200BT");
+	}	
 	set_sim_info();
 }
