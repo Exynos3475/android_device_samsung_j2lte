@@ -26,14 +26,21 @@
  */
 
 #include <stdlib.h>
-
+#include <string.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 
+#include <android-base/file.h>
+#include <android-base/logging.h>
+#include <android-base/strings.h>
+#include <android-base/properties.h>
+
 #include "vendor_init.h"
 #include "property_service.h"
-#include "log.h"
-#include "util.h"
+
+using android::base::GetProperty;
+using android::base::ReadFileToString;
+using android::base::Trim;
 
 void property_override(char const prop[], char const value[])
 {
@@ -48,30 +55,23 @@ void property_override(char const prop[], char const value[])
 
 void set_sim_info()
 {
-	char* simslot_count_path = (char *)"/proc/simslot_count";
+	char *simslot_count_path = "/proc/simslot_count";
 
-    	char simslot_count[2] = "\0";
+    	std::string simslot_count;
 
-	FILE* file = fopen(simslot_count_path, "r");
-
-	simslot_count[0] = fgetc(file);
-
-	if (file != NULL) {
-		property_set("ro.multisim.simslotcount", simslot_count);
+	if (ReadFileToString(simslot_count_path, &simslot_count)) {
+		simslot_count = Trim(simslot_count); // strip newline
+		property_override("ro.multisim.simslotcount", simslot_count.c_str());
 	}
 	else {
-		ERROR("Could not open /proc/simslot_count");
+		LOG(ERROR) << "Could not open /proc/simslot_count\n";
 	}
-
-	fclose(file);
 
 }
 
 void vendor_load_properties()
 {
-	std::string bl;
-
-	bl = property_get("ro.bootloader");
+	std::string bl = GetProperty("ro.bootloader", "");
 
 	if (bl.find("J200GU") != std::string::npos) {
 		property_override("ro.product.model", "J200GU");
