@@ -9,7 +9,7 @@ vendor/lib/libbt-vendor.so
 etc/bluetooth/bt_stack.conf
 
 # Camera
-lib/hw/camera.exynos3.so
+lib/hw/camera.exynos3.so:lib/hw/camera.exynos5.so
 lib/libcamera_metadata.so
 lib/libexynoscamera.so
 lib/libseccameracore.so
