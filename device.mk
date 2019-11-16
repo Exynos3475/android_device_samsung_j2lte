@@ -213,7 +213,7 @@ PRODUCT_PACKAGES += \
     libstlport
 
 # ADB
-ADDITIONAL_DEFAULT_PROPERTIES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 	persist.service.adb.enable=1 \
 	persist.service.debuggable=1 \
 	persist.sys.usb.config=mtp,adb \
