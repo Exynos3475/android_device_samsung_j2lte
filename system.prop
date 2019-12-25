@@ -10,8 +10,6 @@ ro.bt.bdaddr_path="/efs/bluetooth/bt_addr"
 qcom.bluetooth.soc=rome
 
 # Dalvik/Art
-dalvik.vm.image-dex2oat-filter=speed
-dalvik.vm.dex2oat-filter=speed
 dalvik.vm.heapstartsize=8m
 dalvik.vm.heapgrowthlimit=96m
 dalvik.vm.heapsize=256m
