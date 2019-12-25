@@ -101,8 +101,7 @@ on property:init.svc.macloader=stopped
     chmod 0664 /data/.rev
 # end of WiFi MFG (TestMode)
 
-service hostapd /system/bin/hostapd -dddd -e 
-/data/misc/wifi/entropy.bin /data/misc/wifi/hostapd.conf
+service hostapd /system/bin/hostapd -dddd -e /data/misc/wifi/entropy.bin /data/misc/wifi/hostapd.conf
     class late_start
     user root
     group root
