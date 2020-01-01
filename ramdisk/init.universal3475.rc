@@ -30,8 +30,6 @@ on init
     symlink /dev/block/platform/13540000.dwmmc0/by-name/PERSISTENT /dev/block/persistent
 
 on post-fs-data
-# Log data folder
-#   mkdir /data/log 0771 radio system
 
     setprop vold.post_fs_data_done 1
 
@@ -53,11 +51,6 @@ on post-fs-data
     chown system radio /sys/class/camera/front/front_camtype
 
 on boot
-    # override init.rc to keep plenty of large order chunks around
-    # to improve allocation times
-    # write /proc/sys/vm/min_free_kbytes 32768
-    # write /proc/sys/vm/min_free_order_shift 1
-
     # Allow to access debugfs
     chmod 755 /sys/kernel/debug
     
@@ -172,9 +165,6 @@ on boot
     chown system radio /sys/class/sensors/proximity_sensor/prox_offset_pass
     chown system radio /sys/class/sensors/proximity_sensor/prox_trim
 
-# Support DM logging
-    chmod 0770 /system/bin/dmd
-
 #for datarouter
     chown system system /dev/dun
     chown system system /dev/ttyGS0
@@ -185,12 +175,6 @@ on boot
 # MTP permission
     chmod 0660 /dev/usb_mtp_gadget
     chown system mtp /dev/usb_mtp_gadget
-
-# Support Virtual Com
-    chmod 0770 /system/bin/vcd
-
-# Support AP/CP log dump
-    chmod 0770 /system/bin/sced
 
 # Permission for UART SWITCH
     chmod 0660 /sys/class/sec/switch/uart_sel
@@ -213,10 +197,6 @@ on boot
 
     # CS socket
     mkdir /dev/socket/cs_socket 0770 system system
-
-# IPSec for VOLTE
-    chown root system /dev/socket
-    chmod 0775 /dev/socket
 
 on fs
     #For cpefs partition
@@ -291,39 +271,6 @@ on fs
     chown radio system /sys/class/sec/sec_key/wakeup_keys
     write /sys/class/sec/sec_key/wakeup_keys 116,172
 
-# Modem boot daemon
-#    service cpboot-daemon /system/bin/cbd -d
-#    class main
-#    user root
-#    group radio cache inet misc audio sdcard_rw log
-
-# DM daemon
-#    service DM-daemon /system/bin/dmd
-#    class main
-#    user root
-#    group system
-
-# VC daemon
-#    service VC-daemon /system/bin/vcd
-#    class main
-#    user root
-#    group system
-
-# SCE daemon
-#    service SCE-daemon /system/bin/sced
-#    class main
-#    user root
-#    group system
-
-# ARGOSD network_throughput
-    chown system system /dev/network_throughput
-
-# ARGOSD
-service argos-daemon /system/bin/argosd
-    class main
-    user system
-    group system radio
-
 service prepare_param /system/bin/prepare_param.sh /dev/block/platform/13540000.dwmmc0/by-name/PARAM
     class core
     user root
@@ -337,13 +284,6 @@ service cameraserver /system/bin/cameraserver
     group media_rw audio camera drmrpc inet shell sdcard_r system
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks
-
-# IPSec for VOLTE
-service ipsec-daemon /system/bin/IPSecService
-    class main
-    socket ipsec_socket stream 660 system system
-    user system
-    group system net_raw inet net_admin
 
 # on userdebug and eng builds, enable kgdb on the serial console
 on property:ro.debuggable=1
@@ -363,7 +303,6 @@ on property:ro.bootmode=charger
 
 on property:ro.bootmode=charger
     wait /dev/block/platform/13540000.dwmmc0/by-name/EFS
-    check_fs /dev/block/platform/13540000.dwmmc0/by-name/EFS ext4
     mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
 
 on property:ro.bootmode=charger
@@ -384,20 +323,6 @@ service cs_service /system/bin/cs
 on property:sys.mobicoredaemon.enable=true
     start cs_service
     write /proc/iccc_ready 1
-
-# Secure Storage startup
-service secure_storage /system/bin/secure_storage_daemon
-    class core
-    user system
-    group system
-    disabled
-
-on property:ro.securestorage.support=true
-    mkdir /dev/.secure_storage
-    chmod 0711 /dev/.secure_storage
-    chown system system /dev/.secure_storage
-    restorecon -R /dev/.secure_storage
-    start secure_storage
 
 # SSWAP
 service swapon /sbin/sswap -s -f 1536

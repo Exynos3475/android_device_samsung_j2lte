@@ -4,9 +4,6 @@
 #
 
 on init
-
-    ffu
-
 # [ SEC_SELINUX_PORTING_COMMON
     # for audit message
     chown system system /proc/avc_msg
@@ -64,20 +61,6 @@ on init
 
     # Directory for putting things only root should see.
     mkdir /mnt/secure 0700 root root
-## Samsung ODE >>>
-    # Create private mountpoint so we can MS_MOVE from staging
-    mount tmpfs tmpfs /mnt/secure mode=0700,uid=0,gid=0
-
-    # Directory for staging bindmounts
-    mkdir /mnt/secure/staging 0700 root root
-    restorecon_recursive /mnt/secure/staging
-## Samsung ODE <<<
-
-    # Directory-target for where the secure container
-    # imagefile directory will be bind-mounted
-    mkdir /mnt/secure/asec 0700 root root
-    mount tmpfs tmpfs /mnt/secure/asec mode=0700,uid=0,gid=0
-    restorecon_recursive /mnt/secure/asec
 
     mkdir /mnt/asec 0755 root system
     mkdir /mnt/obb 0755 root system
@@ -360,7 +343,6 @@ on property:sys.boot_from_charger_mode=1
 
 # Load properties from /system/ + /factory after fs mount.
 on load_system_props_action
-    start scs
     load_system_props
 
 on load_persist_props_action
@@ -410,7 +392,6 @@ on late-init
 
 
 on post-fs
-    start sec-sh
     start logd
 
     # mobicore
@@ -422,11 +403,6 @@ on post-fs
     mount rootfs rootfs / shared rec
     # Mount default storage into root namespace
     mount none /mnt/runtime/default /storage slave bind rec
-## Samsung ODE >>>
-    mount tmpfs tmpfs /mnt/secure private rec
-## Samsung ODE <<<
-
-    mount tmpfs tmpfs /mnt/secure/asec shared rec
 
     # Make sure /sys/kernel/debug (if present) is labeled properly
     restorecon_recursive /sys/kernel/debug
@@ -469,9 +445,6 @@ on post-fs
     # create the lost+found directories, so as to enforce our permissions
     mkdir /cache/lost+found 0770 root root
 
-    #vpnclient
-    mkdir /data/misc/vpnclientd 0770 system system
-
 on post-fs-data
 # [ SEC_SELINUX_PORTING_COMMON
     # Reload SE Android Policy
@@ -497,17 +470,6 @@ on post-fs-data
     chmod 0644 /efs/cpk/h2k.dat
     chown system system /efs/drm/h2k
 
-    # icd
-    check_icd
-    chown system system /dev/icd
-    chmod 0644 /dev/icd
-    chown system system /dev/icdr
-    chmod 0644 /dev/icdr
-    chown system nfc /dev/tzic
-    chmod 0660 /dev/tzic
-    restorecon /dev/icd
-    restorecon /dev/icdr
-
     #SideSync
     chown system system /dev/android_ssusbcon
     chmod 0660 /dev/android_ssusbcon
@@ -522,9 +484,6 @@ on post-fs-data
 	  chmod 0660 /dev/t-base-tui
     chown system system /dev/t-base-tui
     start mobicore
-
-    # start ICD before vold
-    start icd
 
     # Make sure we have the device encryption key.
     start vold
@@ -589,9 +548,6 @@ on post-fs-data
 
     mkdir /data/misc/profman 0770 system shell
 
-    #OTP
-    mkdir /data/otp 0700 system system
-
     # NFC
     mkdir /data/nfc 0700 nfc nfc
     mkdir /data/nfc/param 0700 nfc nfc
@@ -616,13 +572,6 @@ on post-fs-data
 	#MST-MFC Support
     chown system system /sys/class/mstldo/mst_drv/mfc
     chmod 0770 /sys/class/mstldo/mst_drv/mfc
-
-# [ SEC_SELINUX_PORTING_COMMON
-    mkdir /data/misc/audit 0775 audit system
-
-    # start auditd
-    start auditd
-# ] SEC_SELINUX_PORTING_COMMON
 
     # ATT CIQ
     mkdir /data/iq_archive 0771 system system
@@ -683,41 +632,6 @@ on post-fs-data
     chown media system /dev/socket/uibc
     chmod 0775 /dev/socket/uibc
 
-    # VaultKeeper socket
-    mkdir /dev/socket/vaultkeeper 0770 system system
-    chown system system /dev/socket/vaultkeeper
-    chmod 0770 /dev/socket/vaultkeeper
-
-# [ SEC_MM_DRM
-    # DRM directory creation
-    mkdir /system/etc/security/.drm 0775
-    chown root root /system/etc/security/.drm
-    chmod 0775 /system/etc/security/.drm
-
-    # Added for Playready DRM Support
-	cpyContent_rmdir /data/data/.drm
-    mkdir /data/.drm 0775
-    chown drm system /data/.drm
-    chmod 0775 /data/.drm
-    mkdir /data/.drm/.playready 0775
-    chown drm system /data/.drm/.playready
-    chmod 0775 /data/.drm/.playready
-
-    # Added for Playready DCM DRM Support
-    mkdir /data/.dcmdrm 0775
-    chown drm system /data/.dcmdrm
-    chmod 0775 /data/.dcmdrm
-    mkdir /data/.dcmdrm/.playready 0775
-    chown drm system /data/.dcmdrm/.playready
-    chmod 0775 /data/.dcmdrm/.playready
-
-    # Added drm folder to copy drm plugins
-    mkdir /system/lib/drm 0775
-    chown root root /system/lib/drm
-    chmod 0775 /system/lib/drm
-
-# ]
-
     # Chooser/Resolver
     cpyContent_rmdir /data/user/0/system:ui
     cpyContent_rmdir /data/user/0/android:ui
@@ -749,12 +663,6 @@ on post-fs-data
 
     init_user0
 
-# [ SEC_SELINUX_PORTING_COMMON
-    # reload_policy is move to above
-    # Reload policy from /data/security if present.
-    #setprop selinux.reload_policy 1
-# ] SEC_SELINUX_PORTING_COMMON
-
     # Set SELinux security contexts on upgrade or policy update.
     restorecon_recursive /data
 
@@ -765,12 +673,6 @@ on post-fs-data
     restorecon -R /efs
     restorecon -R /carrier
 # ] SEC_SELINUX_PORTING_COMMON
-
-    # If there is no fs-post-data action in the init.<device>.rc file, you
-    # must uncomment this line, otherwise encrypted filesystems
-    # won't work.
-    # Set indication (checked by vold) that we have finished this action
-    #setprop vold.post_fs_data_done 1
 
 # Downloadable Filter
     mkdir /data/DownFilters       0775 system system
@@ -786,10 +688,6 @@ on post-fs-data
     mkdir  /data/app_fonts 0775 system system
 
 on boot
-
-	# KNOX KAP
-    chown system system /dev/knox_kap
-    chmod 0660 /dev/knox_kap
 
     # permissions for bluetooth.
     mkdir /efs/bluetooth 0775 radio system
@@ -1319,10 +1217,6 @@ on boot
 
 # Daydream
     setprop sys.daydream.connected 0
-    
-# KNOX_NAP
-    chmod 0660 /dev/ncm_dev
-    chown system system /dev/ncm_dev
 
 # UFS
     chown system system /sys/class/scsi_host/host0/unique_number
@@ -1363,8 +1257,6 @@ on boot
 on nonencrypted
     # mobicore
     mkdir /data/app/mcRegistry 0775 system system
-    # A/B update verifier that marks a successful boot.
-    exec - root cache -- /system/bin/update_verifier nonencrypted
     class_start main
     class_start late_start
 
@@ -1404,8 +1296,6 @@ on property:vold.decrypt=trigger_reset_main
 
 on property:vold.decrypt=trigger_load_persist_props
     load_persist_props
-    start sysmon
-    start scs
     start logd
     start logd-reinit
 
@@ -1413,8 +1303,6 @@ on property:vold.decrypt=trigger_post_fs_data
     trigger post-fs-data
 
 on property:vold.decrypt=trigger_restart_min_framework
-    # A/B update verifier that marks a successful boot.
-    exec - root cache -- /system/bin/update_verifier trigger_restart_min_framework
     class_start main
 
 on property:vold.decrypt=trigger_restart_framework
@@ -1423,8 +1311,6 @@ on property:vold.decrypt=trigger_restart_framework
     pdp backup
     # mobicore
     mkdir /data/app/mcRegistry 0775 system system
-    # A/B update verifier that marks a successful boot.
-    exec - root cache -- /system/bin/update_verifier trigger_restart_framework
     class_start main
     class_start late_start
 
@@ -1445,17 +1331,6 @@ on property:sys.powerctl=*
 on property:sys.sysctl.extra_free_kbytes=*
     write /proc/sys/vm/extra_free_kbytes ${sys.sysctl.extra_free_kbytes}
 
-# Activate Background Compaction
-on property:sys.sysctl.compact_memory=1
-    setprop sys.sysctl.compact_memory 0
-    start compact_memory
-
-service compact_memory /sbin/bgcompact
-    user root
-    seclabel u:r:sswap:s0
-    oneshot
-    disabled
-
 # "tcp_default_init_rwnd" Is too long!
 on property:sys.sysctl.tcp_def_init_rwnd=*
     write /proc/sys/net/ipv4/tcp_default_init_rwnd ${sys.sysctl.tcp_def_init_rwnd}
@@ -1465,20 +1340,6 @@ on property:security.perf_harden=0
 
 on property:security.perf_harden=1
     write /proc/sys/kernel/perf_event_paranoid 3
-
-## Daemon processes to be run by init.
-##
-# deferred initcall
-service sec-sh /system/bin/sh /system/etc/init.sec.boot.sh
-    class core
-    user root
-    oneshot
-
-service sysmon /system/bin/sysmon
-    class core
-    user root
-	group root readproc
-    oneshot
 
 service ueventd /sbin/ueventd
     class core
@@ -1502,26 +1363,6 @@ service console /system/bin/sh
     user shell
     group shell log readproc
     seclabel u:r:shell:s0
-
-service SIDESYNC_service /system/bin/ss_conn_daemon
-    class main
-    socket ss_conn_daemon stream 0666 system system
-    user system
-    group inet net_raw
-
-## WTL_EDM_START
-## EDM AuditLog
-service edmaudit /system/bin/edmaudit
-    class main
-    user root
-    disabled
-
-on property:security.edmaudit=true
-    start edmaudit
-
-on property:security.edmaudit=false
-    stop edmaudit
-## WTL_EDM_END
 
 service kap_enable /sbin/knox_changer -e
     class main
@@ -1587,25 +1428,10 @@ on property:ro.debuggable=1
     chmod 0773 /data/misc/trace
     start console
 
-service vaultkeeperd /system/bin/vaultkeeperd
-    class core
-
 service drm /system/bin/drmserver
-    class main
-    user drm
-# [ SEC_MM_DRM
-# fix
-    group system drm inet drmrpc readproc dpgp
-# org
-#    group drm system inet drmrpc
-# ]
-
-service scs /system/bin/scs
-    class main
-    user system
-    group system
-    oneshot
-    disabled
+     class main
+     user drm
+     group drm system inet drmrpc
 
 # MobiCore startup
 service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF000000000000000000000001.drbin -r /system/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin -r /system/app/mcRegistry/ffffffffd00000000000000000000016.tlbin
@@ -1618,13 +1444,6 @@ service flash_recovery /system/bin/install-recovery.sh
     class main
     oneshot
 
-# [ SEC_SELINUX_PORTING_COMMON
-service auditd /system/bin/auditd -k
-    class main
-    seclabel u:r:auditd:s0
-    disabled
-    oneshot
-
 on property:selinux.sec.restorecon=1
     restorecon_data_force /data
 
@@ -1632,144 +1451,6 @@ on property:selinux.sec.restorecon=1
 on property:persist.security.mdm.policy=1
     setprop selinux.reload_policy 1
 # ] SEC_SELINUX_PORTING_COMMON
-
-# bootchecker
-service bootchecker /system/bin/bootchecker
-    class late_start
-    user system
-    group system log
-    oneshot
-
-# [ Professional audio
-service apaservice /system/bin/apaservice
-	class main
-	user jack
-	group inet sdcard_rw sdcard_r media_rw shell
-
-service jackservice /system/bin/jackservice
-	class main
-	user jack
-	group audio inet shell
-# Professional audio ]
-
-# icd
-service icd /system/bin/icd
-    class main
-    user system
-    group system log
-    onrestart check_icd
-    disabled
-    oneshot
-
-on property:init.svc.zygote=restarting
-    restart bootchecker
-
-# strongSwan VPN
-service charon /system/bin/charon
-    class main
-    socket charon stream 600 system system
-    # charon will setuid to vpn after getting necessary resources.
-    group vpn net_admin inet shell
-    disabled
-    oneshot
-
-# ccm
-service ccm /system/bin/tlc_server CCM
-  user system
-  group system
-  disabled
-
-on property:persist.security.tlc.ccm=1
-  start ccm
-  setprop persist.security.tlc.ccm 0
-
-on property:persist.security.ccmextra=1
-  setprop persist.security.ccmextra 0
-  write /proc/sysrq-trigger "c"
-
-# dcm
-service dcm /system/bin/tlc_server DCM
-  user system
-  group system
-  disabled
-
-on property:persist.security.tlc.restartdcm=1
-  stop  dcm
-  setprop persist.security.tlc.dcm 1
-  setprop persist.security.tlc.restartdcm 0
-
-on property:persist.security.tlc.dcm=1
-  start dcm
-  setprop persist.security.tlc.dcm 0
-
-# esecomm
-  service esecomm /system/bin/tlc_server ESECOMM
-  user system
-  group system
-  disabled
-
-on property:persist.security.tlc.esecomm=1
-  start esecomm
-  setprop persist.security.tlc.esecomm 0
-
-# IO stats Deamon
-service iod /system/bin/iod
-    user system
-    group shell
-    class main
-    oneshot
-    disabled
-
-on property:sys.boot_completed=1
-    pdp result
-    start iod
-
-# icd
-on property:init.svc.media=restarting
-    check_icd
-    start icd
-
-# otp
-service otp /system/bin/otp_server
-    user system
-    group system
-    disabled
-
-on property:persist.security.tlc.otp=1
-    start otp
-    setprop persist.security.tlc.otp 0
-
-# Sensorhub service
-service sensorhubservice /system/bin/sensorhubservice
-    class main
-    user system
-    group input
-
-# SecEDS
-service TvoutService_C /system/bin/bintvoutservice
-    class main
-    user system
-    group graphics
-on property:ro.SecEDS.enable=false
-    stop TvoutService_C
-
-#preparefbe
-service preparefbe_ce /system/bin/preparefbe storage_ce
-    oneshot
-    disabled
-service preparefbe_de /system/bin/preparefbe storage_de
-    oneshot
-    disabled
-
-service vpnclientd /system/bin/vpnclientd
-    socket vpnclientd seqpacket 0600 system system
-    user system
-    group system net_admin inet net_raw
-    disabled
-on property:service.vpnclientd.enable=1
-    start vpnclientd
-on property:service.vpnclientd.enable=0
-    stop vpnclientd
 
 on property:sys.sf.restart=1
     restart surfaceflinger
