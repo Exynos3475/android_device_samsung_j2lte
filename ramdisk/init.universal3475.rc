@@ -325,9 +325,8 @@ on property:sys.mobicoredaemon.enable=true
     write /proc/iccc_ready 1
 
 # SSWAP
-service swapon /sbin/sswap -s -f 1536
+service sswap /sbin/sswap -s -f 1536
     class core
     user root
     group root
-    seclabel u:r:sswap:s0
     oneshot
