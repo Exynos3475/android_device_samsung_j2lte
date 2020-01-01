@@ -11,7 +11,7 @@ etc/bluetooth/bt_stack.conf
 # Camera
 lib/hw/camera.exynos3.so:lib/hw/camera.exynos5.so
 lib/libcamera_metadata.so
-lib/libexynoscamera.so
+lib/libexynoscameraexternal.so
 lib/libseccameracore.so
 lib/libhwjpeg.so
 lib/libexynosutils.so
@@ -19,15 +19,8 @@ lib/libcsc.so
 lib/libexynosgscaler.so
 lib/libexynosscaler.so
 lib/libexynosv4l2.so
-lib/libHpr_RecFace_dl_v1.0.so
-lib/libHpr_RecGAE_cvFeature_v1.0.so
-lib/libHpr_TaskFaceClustering_hierarchical_v1.0.so
-vendor/firmware/setfile_4h5yc.bin
-vendor/firmware/setfile_5e3.bin
 vendor/lib/libOpenCv.so:lib/libOpenCv.so
-vendor/lib/libHpr_LocLandmark_sdm_v1.0.so
 vendor/lib/libsomp.so:lib/libsomp.so
-vendor/lib/libHpr_LocFace_mvfd_v1.0.so
 
 # DRM
 vendor/lib/mediadrm/libdrmclearkeyplugin.so

@@ -171,6 +171,10 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     cm_charger_res_images
 
+# Camera
+PRODUCT_PACKAGES += \
+    libstlport
+
 # ADB
 ADDITIONAL_DEFAULT_PROPERTIES += \
 	persist.service.adb.enable=1 \

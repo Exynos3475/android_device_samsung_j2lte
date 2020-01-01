@@ -280,7 +280,7 @@ service prepare_param /system/bin/prepare_param.sh /dev/block/platform/13540000.
 
 service cameraserver /system/bin/cameraserver
     class main
-    user cameraserver
+    user media
     group media_rw audio camera drmrpc inet shell sdcard_r system
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks

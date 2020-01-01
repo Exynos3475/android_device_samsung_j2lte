@@ -41,6 +41,7 @@
     const char CameraParameters::METERING_SPOT[] = "spot"; \
     const char CameraParameters::METERING_OFF[] = "off"; \
     const char CameraParameters::KEY_DYNAMIC_RANGE_CONTROL[] = "dynamic-range-control"; \
+    const char CameraParameters::KEY_ISO[] = "iso"; \
     const char CameraParameters::KEY_SUPPORTED_PHASE_AF[] = "phase-af-values"; \
     const char CameraParameters::KEY_PHASE_AF[] = "phase-af"; \
     const char CameraParameters::KEY_SUPPORTED_RT_HDR[] = "rt-hdr-values"; \
@@ -73,6 +74,7 @@
     static const char METERING_SPOT[]; \
     static const char METERING_OFF[]; \
     static const char KEY_DYNAMIC_RANGE_CONTROL[]; \
+    static const char KEY_ISO[]; \
     static const char KEY_SUPPORTED_PHASE_AF[]; \
     static const char KEY_PHASE_AF[]; \
     static const char KEY_SUPPORTED_RT_HDR[]; \
