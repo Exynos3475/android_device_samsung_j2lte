@@ -120,3 +120,8 @@
 /sbin/cbd                    -- u:object_r:rootfs:s0
 /system/bin/gpsd             -- u:object_r:gpsd_exec:s0
 /system/bin/lhd               -- u:object_r:lhd_exec:s0
+
+####################################
+# samsung's sswap
+#
+/dev/block/vnswap0      u:object_r:sswap_device:s0
