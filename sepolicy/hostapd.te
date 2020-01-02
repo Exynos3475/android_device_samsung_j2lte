@@ -1,2 +1,1 @@
-allow hostapd wifi_efs_file:dir search;
-allow hostapd wifi_efs_file:file { read open };
+allow hostapd rfkill_device:chr_file { open read };
