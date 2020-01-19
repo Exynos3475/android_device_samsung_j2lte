@@ -216,6 +216,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstlport
 
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl
+
 # ADB
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 	persist.service.adb.enable=1 \
