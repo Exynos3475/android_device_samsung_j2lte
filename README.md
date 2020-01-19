@@ -1,6 +1,6 @@
 Samsung Galaxy J2 (j2lte)
 =============
-This branch is for building LineageOS 14.1 (or Android Nougat 7.1 AOSP based ROMs).
+This branch is for building LineageOS 15.1 (or Android Oreo 8.1 AOSP based ROMs).
 
 
 <img src="https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j2-2.jpg" width="350" height="350"/>
