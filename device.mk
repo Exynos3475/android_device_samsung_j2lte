@@ -220,6 +220,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl
 
+# Shims
+PRODUCT_PACKAGES += \
+    libshim_sensor
+
 # ADB
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 	persist.service.adb.enable=1 \

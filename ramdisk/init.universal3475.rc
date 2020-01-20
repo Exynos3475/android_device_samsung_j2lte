@@ -9,6 +9,8 @@ on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
     
 on init
+    export LD_PRELOAD "/system/lib/libshim_sensor.so"
+
     start watchdogd
 
     # See storage config details at http://source.android.com/tech/storage/
