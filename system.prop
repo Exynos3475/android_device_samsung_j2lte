@@ -52,8 +52,10 @@ ro.ril.telephony.mqanelements=6
 # Wifi
 wifi.interface=wlan0
 
-# Treble
+# Media
 persist.media.treble_omx=false
+media.stagefright.legacyencoder=1
+media.stagefright.less-secure=1
 
 # sdcardfs
 ro.sys.sdcardfs=false
