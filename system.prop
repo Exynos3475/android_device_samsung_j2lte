@@ -51,3 +51,7 @@ ro.ril.telephony.mqanelements=6
 
 # Wifi
 wifi.interface=wlan0
+
+# OMX
+media.stagefright.legacyencoder=1
+media.stagefright.less-secure=1
