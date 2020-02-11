@@ -91,7 +91,6 @@ BOARD_CUSTOM_BT_CONFIG := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # Samsung HALs
-TARGET_AUDIOHAL_VARIANT := samsung
 TARGET_POWERHAL_VARIANT := samsung
 
 # Samsung Hardware
