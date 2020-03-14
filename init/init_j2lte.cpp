@@ -81,6 +81,8 @@ void vendor_load_properties()
 		property_override("ro.product.model", "J200F");
 	} else if (bl.find("J200BT") != std::string::npos) {
 		property_override("ro.product.model", "J200BT");
-	}	
+	} else if (bl.find("J200Y") != std::string::npos) {
+		property_override("ro.product.model", "J200Y");
+	}
 	set_sim_info();
 }
