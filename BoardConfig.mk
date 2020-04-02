@@ -165,6 +165,9 @@ BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 # Release tools
 TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 
+# Dex-preoptimization to speed up boot sequences
+WITH_DEXPREOPT := true
+
 # Recovery
 #RECOVERY_VARIANT := twrp
 BOARD_HAS_DOWNLOAD_MODE := true
