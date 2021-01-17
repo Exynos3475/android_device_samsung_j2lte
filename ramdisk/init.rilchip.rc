@@ -9,6 +9,7 @@ service ril-daemon /system/bin/rild
     socket rild stream 660 root radio
     socket sap_uim_socket1 stream 660 bluetooth bluetooth
     socket rild-debug stream 660 radio system
+    socket rild-cas stream 660  casdrm mmb
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw log vpn system readproc
     onrestart restart cpboot-daemon
@@ -18,8 +19,10 @@ service ril-daemon1 /system/bin/rild -c 2
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
     user root
-    group radio cache inet misc audio sdcard_r sdcard_rw log vpn system readproc
+    group radio cache inet misc audio sdcard_r sdcard_rw log
+    seclabel u:r:init:s0
     disabled
+    onrestart restart cpboot-daemon
 
 on property:ro.multisim.simslotcount=1
     setprop persist.radio.multisim.config ss
