@@ -166,7 +166,12 @@ enum {
     GRALLOC_USAGE_HWC_HWOVERLAY         = 0x20000000,
 #endif
 
-    GRALLOC_USAGE_GPU_BUFFER            = 0x00800000,
+    GRALLOC_USAGE_CAMERA_RESERVED       = 0x04000000U,
+    GRALLOC_USAGE_NOZEROED              = 0x08000000U,
+    GRALLOC_USAGE_VIDEO_EXT             = 0x10000000U,
+    GRALLOC_USAGE_GPU_BUFFER            = 0x00800000U,
+    GRALLOC_USAGE_PROTECTED_DPB         = 0x00800000U,
+
 };
 
 /*****************************************************************************/
