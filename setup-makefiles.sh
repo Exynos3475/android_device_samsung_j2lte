@@ -18,9 +18,9 @@
 set -e
 
 VENDOR=samsung
-DEVICE=a3xelte
+DEVICE=j1xlte
 
-export INITIAL_COPYRIGHT_YEAR=2017
+export INITIAL_COPYRIGHT_YEAR=2016
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -39,7 +39,7 @@ source "${HELPER}"
 setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}"
 
 # Copyright headers and guards
-write_headers "a3xelte"
+write_headers "j1xlte"
 
 # The standard blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true

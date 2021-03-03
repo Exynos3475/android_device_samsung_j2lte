@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/a3xelte
+LOCAL_PATH := device/samsung/j1xlte
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
@@ -38,7 +38,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.universal7580 \
+    camera.universal3475 \
     Snap
 
 # hardware/samsung/AdvancedDisplay (MDNIE)
@@ -116,7 +116,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0
 
 PRODUCT_COPY_FILES += \
-    device/samsung/universal7580-common/configs/init/rild.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rild.legacy.rc
+    device/samsung/universal3475-common/configs/init/rild.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rild.legacy.rc
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -135,8 +135,8 @@ PRODUCT_COPY_FILES += \
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
 
-# Inherit from universal7580-common
-$(call inherit-product, device/samsung/universal7580-common/device-common.mk)
+# Inherit from universal3475-common
+$(call inherit-product, device/samsung/universal3475-common/device-common.mk)
 
 # Call the proprietary setup
-$(call inherit-product, vendor/samsung/a3xelte/a3xelte-vendor.mk)
+$(call inherit-product, vendor/samsung/j1xlte/j1xlte-vendor.mk)

@@ -18,7 +18,7 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME   "Samsung Galaxy A3 (6)"
+#define BTM_DEF_LOCAL_NAME   "Samsung Galaxy J1 (2016)"
 
 #define BTM_WBS_INCLUDED        TRUE    /* Enable WBS */
 #define BTIF_HF_WBS_PREFERRED   FALSE   /* Don't use WBS by default */

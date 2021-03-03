@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/a3xelte
+LOCAL_PATH := device/samsung/j1xlte
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
@@ -25,9 +25,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l_mr1.mk
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := lineage_a3xelte
-PRODUCT_DEVICE := a3xelte
-PRODUCT_MODEL := SM-A310F
+PRODUCT_NAME := lineage_j1xlte
+PRODUCT_DEVICE := j1xlte
+PRODUCT_MODEL := SM-J120F
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_FINGERPRINT="samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys" \
+    PRIVATE_BUILD_DESC="j1xltejt-user 5.1.1 LMY47X J120FXXU2AQH1 release-keys"
+

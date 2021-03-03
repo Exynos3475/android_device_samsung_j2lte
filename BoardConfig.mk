@@ -14,12 +14,12 @@
 # limitations under the License.
 #
 
-# Inherit from universal7580-common
-include device/samsung/universal7580-common/BoardConfigCommon.mk
+# Inherit from universal3475-common
+include device/samsung/universal3475-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/samsung/a3xelte
+LOCAL_PATH := device/samsung/j1xlte
 
-TARGET_OTA_ASSERT_DEVICE := a3xelte,a3xeltexx,a3xelteub,a3xeltedo
+#TARGET_OTA_ASSERT_DEVICE := j1xlte
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
@@ -47,7 +47,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 12096372736
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # Kernel
-TARGET_KERNEL_CONFIG := lineageos_a3xelte_defconfig
+TARGET_KERNEL_CONFIG := lineage-j1xlte_defconfig
 
 # Shim
 TARGET_LD_SHIM_LIBS += \
