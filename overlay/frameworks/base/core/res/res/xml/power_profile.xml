@@ -18,7 +18,6 @@
         <value>2</value>
     </array>
     <array name="cpu.speeds">
-        <value>1500000</value>
         <value>1400000</value>
         <value>1300000</value>
         <value>1200000</value>
@@ -47,7 +46,7 @@
         <value>46</value>
         <value>42</value>
     </array>
-    <item name="battery.capacity">2300</item>
+    <item name="battery.capacity">2050</item>
     <array name="wifi.batchedscan">
         <value>.0002</value>
         <value>.002</value>
