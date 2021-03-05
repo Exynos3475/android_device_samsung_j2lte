@@ -11,8 +11,8 @@ on boot
 
     # Assign TCP buffer thresholds to be ceiling value of technology maximums
     # Increased technology maximums should be reflected here.
-    write /proc/sys/net/core/rmem_max 2097152
-    write /proc/sys/net/core/wmem_max 2097152
+    write /proc/sys/net/core/rmem_max  1048576
+    write /proc/sys/net/core/wmem_max  2097152
 
     # Set min_free_kbytes to keep larger VM chuncks lying around
     write /proc/sys/vm/min_free_kbytes 32768
@@ -22,31 +22,18 @@ on boot
     write /proc/sys/vm/vfs_cache_pressure 50
 
 on fs
-	# Permissions for LCD
+    # Permissions for LCD
     chown system system /sys/class/lcd/panel/lux
     chown system media_rw /sys/class/lcd/panel/adaptive_control
 
-	# Permissions for Touchkey
+    # Permissions for Touchkey
     chown system radio /sys/class/sec/sec_touchkey/sar_enable
     chown system radio /sys/class/sec/sec_touchkey/sw_reset
     chown system radio /sys/class/sec/sec_touchkey/touchkey_earjack
 
-	# Accelerometer_sensor
+    # Accelerometer_sensor
     chown system radio /sys/class/sensors/accelerometer_sensor/mcu_rev
     chown system radio /sys/class/sensors/accelerometer_sensor/mcu_name
-
-    # BHY
-    chown system radio  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/event_shealth_int
-    chown system radio  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/pedometer_steps
-    chown system radio  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/shealth_cadence
-    chown system radio  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/shealth_cadence_enable
-    chown system radio  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/shealth_enable
-    chown system radio  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/shealth_flush_cadence
-    chmod 660  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/event_shealth_int
-    chmod 660  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/pedometer_steps
-    chmod 660  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/shealth_cadence_enable
-    chmod 660  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/shealth_enable
-    chmod 660  /sys/devices/13870000.hsi2c/i2c-0/0-0028/iio:device0/shealth_flush_cadence
 
     # Restore the previous batt_capacity_max (if it exists)
     copy /efs/Battery/prev_batt_capacity_max /sys/class/power_supply/battery/batt_capacity_max
