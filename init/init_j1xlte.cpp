@@ -87,33 +87,24 @@ void vendor_load_properties()
 
     if (bootloader.find("J120F") != std::string::npos) {
         /* SM-J120F */
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys");
-        property_override("ro.system.build.fingerprint", "samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys");
-        property_override("ro.build.description", "j1xltejt-user 5.1.1 LMY47X J120FXXU2AQH1 release-keys");
         property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J120F");
-        property_override_dual("ro.product.device", "ro.vendor.product.device", "j1xltejt");
-    } else if (bootloader.find("A310M") != std::string::npos) {
-        /* SM-A310M */
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/a3xelteub/a3xelte:7.0/NRD90M/A310MUBU2CQL5:user/release-keys");
-        property_override("ro.system.build.fingerprint", "samsung/a3xelteub/a3xelte:7.0/NRD90M/A310MUBU2CQL5:user/release-keys");
-        property_override("ro.build.description", "a3xelteub-user 7.0 NRD90M A310MUBU2CQL5 release-keys");
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-A310M");
-        property_override_dual("ro.product.device", "ro.vendor.product.device", "a3xelteub");
-    } else if (bootloader.find("A310N0") != std::string::npos) {
-        /* SM-A310N0 */
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/a3xeltekx/a3xeltekx:7.0/NRD90M/A310N0KOU1CQL2:user/release-keys");
-        property_override("ro.system.build.fingerprint", "samsung/a3xeltekx/a3xeltekx:7.0/NRD90M/A310N0KOU1CQL2:user/release-keys");
-        property_override("ro.build.description", "a3xeltekx-user 7.0 NRD90M A310N0KOU1CQL2 release-keys");
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-A310N0");
-        property_override_dual("ro.product.device", "ro.vendor.product.device", "a3xeltekx");
+    } else if (bootloader.find("J120FN") != std::string::npos) {
+        /* SM-J120FN */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J120FN");
+    } else if (bootloader.find("J120G") != std::string::npos) {
+        /* SM-J120G */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J120G");
+    } else if (bootloader.find("J120W") != std::string::npos) {
+        /* SM-J120W */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J120W");
     } else {
-        /* SM-A310Y */
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys");
-        property_override("ro.system.build.fingerprint", "samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys");
-        property_override("ro.build.description", "j1xltejt-user 5.1.1 LMY47X J120FXXU2AQH1 release-keys");
+        /* Forcing SM-J120F */
         property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J120F");
-        property_override_dual("ro.product.device", "ro.vendor.product.device", "j1xltejt");
     }
+
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys");
+    property_override("ro.system.build.fingerprint", "samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys");
+    property_override("ro.build.description", "j1xltejt-user 5.1.1 LMY47X J120FXXU2AQH1 release-keys");
 
     set_sim_info();
 

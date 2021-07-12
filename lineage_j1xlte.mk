@@ -33,6 +33,8 @@ PRODUCT_MANUFACTURER := samsung
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT="samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys" \
+    PRODUCT_NAME=j1xltejt \
     PRIVATE_BUILD_DESC="j1xltejt-user 5.1.1 LMY47X J120FXXU2AQH1 release-keys"
+
+BUILD_FINGERPRINT := samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys
 
