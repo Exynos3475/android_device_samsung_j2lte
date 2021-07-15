@@ -17,9 +17,9 @@
 # Inherit from universal3475-common
 include device/samsung/universal3475-common/BoardConfigCommon.mk
 
-LOCAL_PATH := device/samsung/j1xlte
+LOCAL_PATH := device/samsung/j2lte
 
-TARGET_OTA_ASSERT_DEVICE := j1xlte
+TARGET_OTA_ASSERT_DEVICE := j2lte
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
@@ -47,7 +47,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 4970250240
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # Kernel
-TARGET_KERNEL_CONFIG := lineage-j1xlte_defconfig
+TARGET_KERNEL_CONFIG := lineage-j2lte_defconfig
 
 # Shim
 TARGET_LD_SHIM_LIBS += \
