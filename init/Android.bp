@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libinit_j1xlte",
+    name: "libinit_j2lte",
     recovery_available: true,
     srcs: [
-        "init_j1xlte.cpp",
+        "init_j2lte.cpp",
     ],
     whole_static_libs: ["libbase"],
     include_dirs: [

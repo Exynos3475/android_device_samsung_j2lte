@@ -85,26 +85,32 @@ void vendor_load_properties()
     std::string bootloader = GetProperty("ro.bootloader", "");
     std::string device;
 
-    if (bootloader.find("J120F") != std::string::npos) {
-        /* SM-J120F */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J120F");
-    } else if (bootloader.find("J120FN") != std::string::npos) {
-        /* SM-J120FN */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J120FN");
-    } else if (bootloader.find("J120G") != std::string::npos) {
-        /* SM-J120G */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J120G");
-    } else if (bootloader.find("J120W") != std::string::npos) {
-        /* SM-J120W */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J120W");
+    if (bootloader.find("J200F") != std::string::npos) {
+        /* SM-J200F */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200F");
+    } else if (bootloader.find("J200G") != std::string::npos) {
+        /* SM-J200G */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200G");
+    } else if (bootloader.find("J200GU") != std::string::npos) {
+        /* SM-J200GU */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200GU");
+    } else if (bootloader.find("J200M") != std::string::npos) {
+        /* SM-J200M */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200M");
+    } else if (bootloader.find("J200BT") != std::string::npos) {
+        /* SM-J200BT */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200BT");
+    } else if (bootloader.find("J200Y") != std::string::npos) {
+        /* SM-J200Y */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200Y");
     } else {
-        /* Forcing SM-J120F */
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J120F");
+        /* Forcing SM-J200F */
+        property_override_dual("ro.product.model", "ro.vendor.product.model", "SM-J200F");
     }
 
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys");
-    property_override("ro.system.build.fingerprint", "samsung/j1xltejt/j1xlte:5.1.1/LMY47X/J120FXXU2AQH1:user/release-keys");
-    property_override("ro.build.description", "j1xltejt-user 5.1.1 LMY47X J120FXXU2AQH1 release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "samsung/j2ltejv/j2lte:5.1.1/LMY47X/J200FXXS3ARI1:user/release-keys");
+    property_override("ro.system.build.fingerprint", "samsung/j2ltejv/j2lte:5.1.1/LMY47X/J200FXXS3ARI1:user/release-keys");
+    property_override("ro.build.description", "j2ltejv-user 5.1.1 LMY47X J200FXXS3ARI1 release-keys");
 
     set_sim_info();
 
