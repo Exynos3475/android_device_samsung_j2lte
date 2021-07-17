@@ -19,7 +19,7 @@ include device/samsung/universal3475-common/BoardConfigCommon.mk
 
 LOCAL_PATH := device/samsung/j2lte
 
-TARGET_OTA_ASSERT_DEVICE := j2lte
+TARGET_OTA_ASSERT_DEVICE := j2lte,j2ltedd,j2ltedx
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
