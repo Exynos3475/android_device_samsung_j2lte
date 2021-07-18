@@ -41,10 +41,6 @@ PRODUCT_PACKAGES += \
     camera.universal3475 \
     Snap
 
-# hardware/samsung/AdvancedDisplay (MDNIE)
-PRODUCT_PACKAGES += \
-    AdvancedDisplay
-
 # Graphics
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := large

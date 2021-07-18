@@ -19,19 +19,19 @@
     <integer name="config_proximityCheckTimeout">400</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
 
-    <!-- Color temperature settings for LiveDisplay. These were obtained by
-         measuring the display at various color balance levels. -->
-    <integer name="config_minColorTemperature">1900</integer>
-    <integer name="config_maxColorTemperature">25000</integer>
+    <!-- Disable LiveDisplay -->
+    <integer name="config_defaultLiveDisplayMode">0</integer>
+    <bool name="config_enableLiveDisplay">false</bool>
 
-    <!-- Corresponds to color balance level of zero, this is the native
-         display temperature -->
-    <integer name="config_dayColorTemperature">6500</integer>
-    <integer name="config_nightColorTemperature">4800</integer>
-
-    <!-- Ambient lux at which to enable outdoor mode when LiveDisplay is enabled -->
-    <integer name="config_outdoorAmbientLux">10000</integer>
-    <integer name="config_outdoorAmbientLuxHysteresis">1000</integer>
+    <string-array name="config_externalLineageServices">
+        <item>org.lineageos.platform.internal.ProfileManagerService</item>
+        <item>org.lineageos.platform.internal.LineageHardwareService</item>
+        <item>org.lineageos.platform.internal.PerformanceManagerService</item>
+        <item>org.lineageos.platform.internal.LineageAudioService</item>
+        <item>org.lineageos.platform.internal.TrustInterfaceService</item>
+        <item>org.lineageos.platform.internal.LineageSettingsService</item>
+        <item>org.lineageos.platform.internal.LineageGlobalActionsService</item>
+    </string-array>
 
     <!-- BurnIn protection. This should be enabled on devices that have OLED displays -->
     <bool name="config_enableBurnInProtection">true</bool>
