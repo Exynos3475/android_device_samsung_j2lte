@@ -180,8 +180,8 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0
 
 # call Samsung LSI board support package
-$(call inherit-product, hardware/samsung_slsi-cm/exynos3475/exynos3475.mk)
-$(call inherit-product, hardware/samsung_slsi-cm/exynos5/exynos5.mk)
+$(call inherit-product, hardware/samsung_slsi/exynos3475/exynos3475.mk)
+$(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
 
 # call the proprietary setup
 $(call inherit-product, vendor/samsung/j2lte/j2lte-vendor.mk)
