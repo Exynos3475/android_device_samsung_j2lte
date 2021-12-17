@@ -162,10 +162,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.universal3475
 
-# Root
-PRODUCT_PACKAGES += \
-    su
-
 # Offmode charger
 PRODUCT_PACKAGES += \
     charger_res_images \
@@ -177,11 +173,11 @@ PRODUCT_PACKAGES += \
 
 # ADB
 ADDITIONAL_DEFAULT_PROPERTIES += \
-	persist.service.adb.enable=1 \
-	persist.service.debuggable=1 \
-	persist.sys.usb.config=mtp,adb \
-	ro.secure=0 \
-	ro.adb.secure=0
+    persist.service.adb.enable=1 \
+    persist.service.debuggable=1 \
+    persist.sys.usb.config=mtp,adb \
+    ro.secure=0 \
+    ro.adb.secure=0
 
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi-cm/exynos3475/exynos3475.mk)
