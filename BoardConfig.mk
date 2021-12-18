@@ -48,6 +48,7 @@ TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_HEADER_ARCH := arm
 TARGET_USES_UNCOMPRESSED_KERNEL := true
+TARGET_LINUX_KERNEL_VERSION := 3.10
 
 # Kernel config
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
@@ -55,19 +56,6 @@ KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-ea
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos3475
 TARGET_KERNEL_CONFIG := lineage-j2lte_defconfig
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
-
-# Partitions
-
-#Filesystem            1K-blocks    Used Available Use% Mounted on
-#rootfs                   851220    3176    848044   1% /
-#tmpfs                    934160     528    933632   1% /dev
-#tmpfs                    934160       0    934160   0% /mnt
-#/dev/block/mmcblk0p20   2975760  671072   2304688  23% /system
-#/dev/block/mmcblk0p21    197472     184    197288   1% /cache
-#/dev/block/mmcblk0p24  11467980 2948308   8519672  26% /data
-#/dev/block/mmcblk0p3      16048    2444     13604  16% /efs
-#/dev/block/mmcblk0p4       3952     548      3404  14% /cpefs
-#/dev/block/mmcblk0p18      8080     288      7792   4% /persdata/
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 13631488
@@ -103,16 +91,16 @@ TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
 BOARD_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 TARGET_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 
-# Graphics
-USE_OPENGL_RENDERER := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+# Device Tree
+BOARD_USES_DT := true
 
-# HDMI
-BOARD_HDMI_INCAPABLE := true
-# FIMG2D
-BOARD_USES_SKIA_FIMGAPI := true
-# (G)SCALER
-BOARD_USES_SCALER := true
+# Graphics
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+BOARD_USES_EXYNOS5_COMMON_GRALLOC := true
+
+# VR Front buffer
+#BOARD_USES_VR_FRONT_BUFFER := true
+
 # Samsung OpenMAX Video
 BOARD_USE_STOREMETADATA := true
 BOARD_USE_METADATABUFFERTYPE := true
@@ -124,7 +112,46 @@ BOARD_USE_GSC_RGB_ENCODER := true
 BOARD_USE_CSC_HW := false
 BOARD_USE_QOS_CTRL := false
 BOARD_USE_S3D_SUPPORT := true
+BOARD_USE_TIMESTAMP_REORDER_SUPPORT := false
+BOARD_USE_DEINTERLACING_SUPPORT := false
 BOARD_USE_VP8ENC_SUPPORT := true
+BOARD_USE_HEVCDEC_SUPPORT := true
+BOARD_USE_HEVCENC_SUPPORT := true
+BOARD_USE_HEVC_HWIP := false
+BOARD_USE_VP9DEC_SUPPORT := true
+BOARD_USE_VP9ENC_SUPPORT := false
+BOARD_USE_CUSTOM_COMPONENT_SUPPORT := true
+BOARD_USE_VIDEO_EXT_FOR_WFD_HDCP := false
+BOARD_USE_SINGLE_PLANE_IN_DRM := false
+
+# HWComposer
+BOARD_USES_VPP := true
+#BOARD_USES_VPP_V2 := true // 8890 only
+BOARD_HDMI_INCAPABLE := true
+
+# Scalar
+BOARD_USES_SCALER := true
+
+# HWCServices - requires framework support
+#BOARD_USES_HWC_SERVICES := true
+
+# WiFiDisplay
+#BOARD_USES_VIRTUAL_DISPLAY := true - depends on platform changes
+BOARD_USES_VIRTUAL_DISPLAY_DECON_EXT_WB := false
+BOARD_USE_VIDEO_EXT_FOR_WFD_DRM := false
+BOARD_USES_VDS_BGRA8888 := true
+BOARD_VIRTUAL_DISPLAY_DISABLE_IDMA_G0 := false
+
+# LIBHWJPEG
+TARGET_USES_UNIVERSAL_LIBHWJPEG := true
+
+# FIMG2D
+BOARD_USES_SKIA_FIMGAPI := true
+BOARD_USES_FIMGAPI_V5X := true
+
+# SCALER
+BOARD_USES_DEFAULT_CSC_HW_SCALER := true
+BOARD_USES_SCALER_M2M1SHOT := true
 
 # Bionic
 MALLOC_SVELTE := true
@@ -145,7 +172,6 @@ WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
 WIFI_BAND                        := 802_11_ABG
 
-BOARD_USES_HWC_SERVICES := true
 # Charger
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
