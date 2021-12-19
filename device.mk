@@ -75,10 +75,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
+# Gralloc
 PRODUCT_PACKAGES += \
-    gralloc.exynos3
-
-PRODUCT_PACKAGES += \
+    gralloc.exynos3 \
     libion \
     libfimg
 
@@ -89,14 +88,10 @@ PRODUCT_PACKAGES += \
 # Radio
 PRODUCT_PACKAGES += \
     libxml2 \
-    libprotobuf-cpp-full
-
-PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full \
     libsecril-client \
     libsecril-client-sap \
-    modemloader
-
-PRODUCT_PACKAGES += \
+    modemloader \
     SamsungServiceMode
 
 # IPv6
