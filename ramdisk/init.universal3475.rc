@@ -199,16 +199,13 @@ on boot
     mkdir /dev/socket/cs_socket 0770 system system
 
 on fs
+    mount_all /fstab.universal3475
+    setprop ro.crypto.fuse_sdcard true
+    
     #For cpefs partition
-    mkdir /cpefs 0771 radio system
-    wait /dev/block/platform/13540000.dwmmc0/by-name/CPEFS
-    check_fs /dev/block/platform/13540000.dwmmc0/by-name/CPEFS ext4
-    mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/CPEFS /cpefs noatime nosuid nodev barrier=1
     chown radio system /cpefs
     chmod 0771 /cpefs
 
-    mount_all /fstab.universal3475
-    setprop ro.crypto.fuse_sdcard true
     chown radio system /efs
 
 # Permissions for ION
@@ -269,14 +266,7 @@ on fs
 
 # Permissions for gpio_keys
     chown radio system /sys/class/sec/sec_key/wakeup_keys
-    write /sys/class/sec/sec_key/wakeup_keys 116,172
-
-service prepare_param /system/bin/prepare_param.sh /dev/block/platform/13540000.dwmmc0/by-name/PARAM
-    class core
-    user root
-    group root
-    seclabel u:r:prepare_param:s0
-    oneshot    
+    write /sys/class/sec/sec_key/wakeup_keys 116,172  
 
 service cameraserver /system/bin/cameraserver
     class main
