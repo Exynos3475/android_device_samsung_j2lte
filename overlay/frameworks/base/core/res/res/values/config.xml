@@ -157,6 +157,8 @@
     -->
     <integer name="config_doubleTapOnHomeBehavior">2</integer>
 
+    <integer name="config_buttonBrightnessSettingDefault">0</integer>
+
     <!-- ############################################################## -->
     <!-- ### DISPLAY                                                    -->
     <!-- ############################################################## -->
