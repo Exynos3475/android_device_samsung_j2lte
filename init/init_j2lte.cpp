@@ -73,16 +73,21 @@ void vendor_load_properties()
 
 	bl = property_get("ro.bootloader");
 
-	if (bl.find("J200GU") != std::string::npos) {
-		property_override("ro.product.model", "J200GU");
+	if (bl.find("FA51_J200") != std::string::npos) {
+		/* Forcing SM-J200F */
+		property_override("ro.product.model", "SM-J200F");
+	} else if (bl.find("J200GU") != std::string::npos) {
+		property_override("ro.product.model", "SM-J200GU");
+	} else if (bl.find("J200G") != std::string::npos) {
+		property_override("ro.product.model", "SM-J200G");
 	} else if (bl.find("J200M") != std::string::npos) {
-		property_override("ro.product.model", "J200M");
+		property_override("ro.product.model", "SM-J200M");
 	} else if (bl.find("J200F") != std::string::npos) {
-		property_override("ro.product.model", "J200F");
+		property_override("ro.product.model", "SM-J200F");
 	} else if (bl.find("J200BT") != std::string::npos) {
-		property_override("ro.product.model", "J200BT");
+		property_override("ro.product.model", "SM-J200BT");
 	} else if (bl.find("J200Y") != std::string::npos) {
-		property_override("ro.product.model", "J200Y");
+		property_override("ro.product.model", "SM-J200Y");
 	}
 	set_sim_info();
 }
